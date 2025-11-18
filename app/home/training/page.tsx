@@ -272,7 +272,7 @@ export default function EastCoastRailwayIDFront() {
           <div className="absolute inset-0 flex items-center justify-center opacity-10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/indian_blue.png"
+              src="/indian-blue.png"
               alt="Watermark"
               width={200}
               height={200}
