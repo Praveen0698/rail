@@ -22,7 +22,8 @@ const tileData = [
     label: 'Dummy Tile 1',
     key: 'dummy1',
     accent: 'bg-gray-200',
-    Component: () => <div className="text-center p-4">Dummy Content 1</div>,
+    Component: () => <div className="text-center p-4">Training Card Section</div>,
+    href: '/home/training',
   },
   {
     label: 'Dummy Tile 2',
