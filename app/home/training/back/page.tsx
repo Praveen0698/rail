@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
@@ -169,8 +170,7 @@ export default function EastCoastRailwayIDBack() {
 
         {/* Watermark */}
         <div className="absolute inset-0 flex items-center justify-center opacity-10">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/indian-blue.png"
             alt="Watermark"
             className="object-contain w-[220px] h-[220px]"

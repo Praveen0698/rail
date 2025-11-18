@@ -35,11 +35,19 @@ export default function NPSCard() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center gap-6 p-6">
-      {/* --- Form Controls --- */}
       <div className="bg-white p-4 rounded-lg shadow-md border w-full max-w-3xl space-y-3">
-        <h2 className="text-lg font-bold text-center text-gray-700">
-          National Pension System ID Card
-        </h2>
+        <div className="flex flex-row justify-between items-center">
+          <button
+            className="px-2.5 cursor-pointer py-1 border border-gray-400 rounded-2xl"
+            onClick={() => navigation.back()}
+          >
+            Back
+          </button>
+          <h2 className="text-lg font-bold text-center text-gray-700">
+            National Pension System ID Card
+          </h2>
+          <div />
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
           <div>

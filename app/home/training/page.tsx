@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 import QRCode from "qrcode";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function EastCoastRailwayIDFront() {
   const navigation = useRouter();
@@ -63,11 +64,19 @@ export default function EastCoastRailwayIDFront() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center gap-6 p-6">
-      {/* --- Controls --- */}
       <div className="bg-white p-4 rounded-lg shadow-md border w-full max-w-4xl space-y-3">
-        <h2 className="text-lg font-bold text-center text-gray-700">
-          East Coast Railway ID - Front Side
-        </h2>
+        <div className="flex flex-row justify-between items-center">
+          <button
+            className="px-2.5 py-1 border border-gray-400 rounded-2xl cursor-pointer"
+            onClick={() => navigation.back()}
+          >
+            Back
+          </button>
+          <h2 className="text-lg font-bold text-center text-gray-700">
+            East Coast Railway ID - Front Side
+          </h2>
+          <div />
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
           <div>
@@ -270,8 +279,7 @@ export default function EastCoastRailwayIDFront() {
         <div className="relative z-10 flex gap-5 px-5 py-3">
           {/* Watermark */}
           <div className="absolute inset-0 flex items-center justify-center opacity-10">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/indian-blue.png"
               alt="Watermark"
               width={200}

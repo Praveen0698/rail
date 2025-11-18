@@ -57,11 +57,19 @@ export default function RailwayIDCard() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6 space-y-6">
-      {/* 🔧 Controls */}
       <div className="bg-white p-4 rounded-lg shadow-md w-full max-w-3xl space-y-4 border border-gray-300">
-        <h2 className="font-bold text-lg text-gray-700 text-center">
-          Enter Card Details
-        </h2>
+        <div className="flex flex-row justify-between items-center">
+          <button
+            className="px-2.5 py-1 border border-gray-400 rounded-2xl cursor-pointer"
+            onClick={() => navigation.back()}
+          >
+            Back
+          </button>
+          <h2 className="font-bold text-lg text-gray-700 text-center">
+            Enter Card Details
+          </h2>
+          <div />
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
           <div>
@@ -261,7 +269,11 @@ export default function RailwayIDCard() {
           {/* Main Content */}
           <div className="flex px-3 pt-[4px]">
             {/* Photo */}
-            <div className="flex-shrink-0 border border-black w-[75px] h-[85px]">
+            <div
+              className={`flex-shrink-0 border ${
+                !idPhoto ? "border-black" : "border-none"
+              } w-[75px] h-[85px]`}
+            >
               {idPhoto ? (
                 <Image
                   src={idPhoto}
