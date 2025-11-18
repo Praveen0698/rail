@@ -173,7 +173,9 @@ export default function EastCoastRailwayIDBack() {
           <Image
             src="/indian-blue.png"
             alt="Watermark"
-            className="object-contain w-[220px] h-[220px]"
+            width={200}
+            height={200}
+            className="object-contain"
           />
         </div>
 

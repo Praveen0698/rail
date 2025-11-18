@@ -235,8 +235,7 @@ export default function EastCoastRailwayIDFront() {
         <div className="relative z-10 p-3">
           <div className="flex justify-between items-center px-5">
             {/* Left Logo */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/indian-railway.png"
               alt="Railway Logo"
               width={60}
