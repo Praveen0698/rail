@@ -212,7 +212,7 @@ export default function EastCoastRailwayIDBack() {
               Blood Group :{" "}
               <span className="text-black font-bold">{bloodGroup}</span>
             </p>
-            <p className="text-black font-bold mb-3">{fatherName}</p>
+            {/* <p className="text-black font-bold mb-3">{fatherName}</p> */}
 
             <p className="text-red-600 font-semibold">
               D.O.J : <span className="text-black font-bold">{doj}</span>

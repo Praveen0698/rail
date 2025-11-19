@@ -3,7 +3,6 @@ import { useRef, useState, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 import QRCode from "qrcode";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 
 export default function EastCoastRailwayIDFront() {
   const navigation = useRouter();
@@ -234,8 +233,8 @@ export default function EastCoastRailwayIDFront() {
         {/* Header Section */}
         <div className="relative z-10 p-3">
           <div className="flex justify-between items-center px-5">
-            {/* Left Logo */}
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/indian-railway.png"
               alt="Railway Logo"
               width={60}
@@ -278,7 +277,8 @@ export default function EastCoastRailwayIDFront() {
         <div className="relative z-10 flex gap-5 px-5 py-3">
           {/* Watermark */}
           <div className="absolute inset-0 flex items-center justify-center opacity-10">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/indian-blue.png"
               alt="Watermark"
               width={200}
@@ -288,7 +288,7 @@ export default function EastCoastRailwayIDFront() {
           </div>
 
           {/* Photo Section */}
-          <div className="border w-[80px] h-[100px]">
+          <div className={`${!photo && "border"} w-[80px] h-[100px]`}>
             {photo ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -312,12 +312,30 @@ export default function EastCoastRailwayIDFront() {
           <div className="flex-1 text-[13px] ml-10 font-medium">
             <div className="grid grid-cols-2 gap-y-1">
               <div className="text-[#c930a4] text-xs">
-                <div>नाम</div>
-                <div>पदनाम</div>
-                <div>पी.एफ./एन.पी.एस. स.</div>
-                <div>कार्यालय / स्टेशन</div>
-                <div>जन्म तिथि</div>
-                <div>जारी तिथि</div>
+                <div className="flex justify-between">
+                  <span className="text-[#c930a4]">नाम</span>
+                  <span className="text-[#c930a4]">Name :</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#c930a4]">पदनाम</span>
+                  <span className="text-[#c930a4]">Desig :</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#c930a4]">पी.एफ./एन.पी.एस. स.</span>
+                  <span className="text-[#c930a4]">P.F/NPS No :</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#c930a4]">कार्यालय / स्टेशन</span>
+                  <span className="text-[#c930a4]">Office/Stn :</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#c930a4]">जन्म तिथि</span>
+                  <span className="text-[#c930a4]">D.O.B :</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#c930a4]">जारी तिथि</span>
+                  <span className="text-[#c930a4]">Date of Issue :</span>
+                </div>
               </div>
               <div className="text-xs font-bold ml-2">
                 {name}
