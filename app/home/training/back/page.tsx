@@ -7,8 +7,6 @@ import { useReactToPrint } from "react-to-print";
 export default function EastCoastRailwayIDBack() {
   const navigation = useRouter();
   const cardRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(680);
-  const [height, setHeight] = useState(400);
 
   // 🔹 Data fields
   const [issueDate, setIssueDate] = useState("02.09.2024");
@@ -31,7 +29,18 @@ export default function EastCoastRailwayIDBack() {
 
   const handlePrint = useReactToPrint({
     contentRef: cardRef,
-    documentTitle: "EastCoast_Railway_ID_Back",
+    documentTitle: "PVC_ID_CARD",
+    pageStyle: `
+      @page {
+        size: 86mm 54mm;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    `,
   });
 
   return (
@@ -43,24 +52,6 @@ export default function EastCoastRailwayIDBack() {
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-          <div>
-            <label>Width (px)</label>
-            <input
-              type="number"
-              value={width}
-              onChange={(e) => setWidth(Number(e.target.value))}
-              className="border rounded w-full px-2 py-1"
-            />
-          </div>
-          <div>
-            <label>Height (px)</label>
-            <input
-              type="number"
-              value={height}
-              onChange={(e) => setHeight(Number(e.target.value))}
-              className="border rounded w-full px-2 py-1"
-            />
-          </div>
           <div>
             <label>Issue Date</label>
             <input
@@ -159,11 +150,10 @@ export default function EastCoastRailwayIDBack() {
       {/* --- Back Card Layout --- */}
       <div
         ref={cardRef}
-        className="relative rounded-lg border bg-white shadow-lg overflow-hidden"
-        style={{ width: `${width}px`, height: `${height}px` }}
+        className="relative rounded-lg bg-white overflow-hidden"
+        style={{ width: `325.03937008px`, height: `204.09448819px` }}
       >
-        {/* Header */}
-        <div className="flex justify-between bg-[#3a3b8f] text-white font-bold text-[14px] p-5 px-10">
+        <div className="flex justify-between bg-[#3a3b8f] text-white font-bold text-[8px] py-3 px-5">
           <div className="border-b border-white">परिवार का विवरण</div>
           <div className="border-b border-white">Details of the Family</div>
         </div>
@@ -173,14 +163,14 @@ export default function EastCoastRailwayIDBack() {
           <Image
             src="/indian-blue.png"
             alt="Watermark"
-            width={200}
-            height={200}
+            width={100}
+            height={100}
             className="object-contain"
           />
         </div>
 
         {/* Family Details */}
-        <div className="relative z-10 flex justify-between px-8 py-5 text-[13px] leading-relaxed">
+        <div className="relative z-10 flex justify-between px-4 py-2.5 text-[6px] leading-relaxed">
           {/* LEFT COLUMN */}
           <div className="text-left w-[55%]">
             <p className="text-red-600 font-semibold">
@@ -196,7 +186,7 @@ export default function EastCoastRailwayIDBack() {
               {address}
             </pre>
 
-            <div className="mt-2 flex flex-col">
+            <div className="mt-1 flex flex-col">
               <p className="text-red-600 font-semibold">
                 D.O.B : <span className="text-black font-bold">{dob}</span>
               </p>
@@ -230,11 +220,11 @@ export default function EastCoastRailwayIDBack() {
         </div>
 
         {/* ✅ Dynamic Footer */}
-        <div className="absolute bottom-4 w-full text-center text-[12px] leading-tight px-6">
-          <p className="font-medium">
+        <div className="absolute bottom-4 w-full text-center text-[6px] leading-tight px-3">
+          <p className="font-medium underline decoration-0.5">
             If Found Please Post it to the following address
           </p>
-          <pre className="font-bold mt-1 whitespace-pre-wrap">
+          <pre className="font-bold mt-0.5 whitespace-pre-wrap">
             {returnAddress}
           </pre>
         </div>
@@ -258,4 +248,3 @@ export default function EastCoastRailwayIDBack() {
     </div>
   );
 }
-

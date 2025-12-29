@@ -8,8 +8,6 @@ export default function EastCoastRailwayIDFront() {
   const navigation = useRouter();
 
   const cardRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(680);
-  const [height, setHeight] = useState(400);
 
   // 🔹 Form fields
   const [divisionHindi, setDivisionHindi] = useState("पूर्व तट रेलवे");
@@ -35,7 +33,18 @@ export default function EastCoastRailwayIDFront() {
   // 🖨 Print
   const handlePrint = useReactToPrint({
     contentRef: cardRef,
-    documentTitle: "EastCoast_Railway_ID_Front",
+    documentTitle: "PVC_ID_CARD",
+    pageStyle: `
+      @page {
+        size: 86mm 54mm;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    `,
   });
 
   // 📸 File Upload Helper
@@ -78,25 +87,6 @@ export default function EastCoastRailwayIDFront() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-          <div>
-            <label>Width (px)</label>
-            <input
-              type="number"
-              value={width}
-              onChange={(e) => setWidth(Number(e.target.value))}
-              className="border rounded w-full px-2 py-1"
-            />
-          </div>
-          <div>
-            <label>Height (px)</label>
-            <input
-              type="number"
-              value={height}
-              onChange={(e) => setHeight(Number(e.target.value))}
-              className="border rounded w-full px-2 py-1"
-            />
-          </div>
-
           <div>
             <label>Division (Hindi)</label>
             <input
@@ -227,26 +217,26 @@ export default function EastCoastRailwayIDFront() {
       {/* --- ID Card Layout --- */}
       <div
         ref={cardRef}
-        className="relative rounded-lg border bg-white shadow-lg overflow-hidden"
-        style={{ width: `${width}px`, height: `${height}px` }}
+        className="relative rounded-lg bg-white overflow-hidden"
+        style={{ width: `325.03937008px`, height: `204.09448819px` }}
       >
         {/* Header Section */}
-        <div className="relative z-10 p-3">
-          <div className="flex justify-between items-center px-5">
+        <div className="relative z-10 p-1.5">
+          <div className="flex justify-between items-center px-2.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/indian-railway.png"
               alt="Railway Logo"
-              width={60}
-              height={60}
+              width={35}
+              height={35}
               className="object-contain"
             />
 
             {/* Center Title */}
             <div className="text-center flex-1">
-              <div className="font-semibold text-[16px]">{divisionHindi}</div>
-              <div className="font-bold text-[18px]">{divisionEnglish}</div>
-              <div className="text-[12px] font-medium">{subDivision}</div>
+              <div className="font-semibold text-[8px]">{divisionHindi}</div>
+              <div className="font-bold text-[9px]">{divisionEnglish}</div>
+              <div className="text-[6px] font-medium">{subDivision}</div>
             </div>
 
             {/* ✅ Right Uploadable Logo */}
@@ -254,46 +244,48 @@ export default function EastCoastRailwayIDFront() {
             <img
               src={logo || "/golden-emblem.png"}
               alt="Uploaded Logo"
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               className="object-contain"
             />
           </div>
 
           {/* Department Strip */}
-          <div className="flex justify-between bg-[#3a3b8f] text-white font-bold text-sm px-3 py-1 mt-2">
+          <div className="flex justify-between bg-[#3a3b8f] text-white font-bold text-[6px] px-3 py-0.5 mt-1">
             <div>विभाग Department</div>
             <div>{department}</div>
           </div>
 
           {/* Identity Strip */}
-          <div className="flex justify-between bg-black text-white px-3 py-1 text-sm">
+          <div className="flex justify-between bg-black text-white px-3 py-0.5 text-[6px]">
             <div>परिचय पत्र Identity Card</div>
             <div>कं.सा. No. KUR/COMM/TC/CC/7983</div>
           </div>
         </div>
 
         {/* Main Section */}
-        <div className="relative z-10 flex gap-5 px-5 py-3">
+        <div className="relative z-10 flex gap-5 px-2.5 py-0.5">
           {/* Watermark */}
           <div className="absolute inset-0 flex items-center justify-center opacity-10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/indian-blue.png"
               alt="Watermark"
-              width={200}
-              height={200}
-              className="object-contain mt-10"
+              width={100}
+              height={100}
+              className="object-contain mt-5"
             />
           </div>
 
           {/* Photo Section */}
-          <div className={`${!photo && "border"} w-[80px] h-[100px]`}>
+          <div className={`${!photo && "border"} w-[45px] h-[55px]`}>
             {photo ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={photo}
                 alt="Photo"
+                width={45}
+                height={55}
                 className="w-full h-full object-cover"
               />
             ) : (
@@ -301,17 +293,17 @@ export default function EastCoastRailwayIDFront() {
               <img
                 src="/id-photo.jpg"
                 alt="Default"
-                width={80}
-                height={100}
+                width={45}
+                height={55}
                 className="object-cover"
               />
             )}
           </div>
 
           {/* Details Section */}
-          <div className="flex-1 text-[13px] ml-10 font-medium">
+          <div className="flex-1 text-[9px] ml-5 font-medium">
             <div className="grid grid-cols-2 gap-y-1">
-              <div className="text-[#c930a4] text-xs">
+              <div className="text-[#c930a4] text-[6px]">
                 <div className="flex justify-between">
                   <span className="text-[#c930a4]">नाम</span>
                   <span className="text-[#c930a4]">Name :</span>
@@ -337,7 +329,7 @@ export default function EastCoastRailwayIDFront() {
                   <span className="text-[#c930a4]">Date of Issue :</span>
                 </div>
               </div>
-              <div className="text-xs font-bold ml-2">
+              <div className="text-[6px] font-bold ml-2">
                 {name}
                 <br />
                 {designation}
@@ -355,29 +347,29 @@ export default function EastCoastRailwayIDFront() {
         </div>
 
         {/* QR + Signatures */}
-        <div className="flex flex-row items-end justify-between w-full px-10">
+        <div className="flex flex-row items-end justify-between w-full px-2.5 mt-1.5">
           {/* QR + Employee Signature */}
           <div>
             <div className="flex flex-col items-center">
               {qrImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={qrImage} alt="QR" className="w-[60px] h-[60px]" />
+                <img src={qrImage} alt="QR" className="w-[30px] h-[30px]" />
               ) : qrAuto ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={qrAuto} alt="Auto QR" className="w-[60px] h-[60px]" />
+                <img src={qrAuto} alt="Auto QR" className="w-[30px] h-[30px]" />
               ) : (
-                <span className="text-[10px] text-gray-400">QR</span>
+                <span className="text-[5px] text-gray-400">QR</span>
               )}
             </div>
 
             {/* Employee Signature */}
-            <div className="flex flex-col items-center text-[10px] mt-2">
+            <div className="flex flex-col items-center text-[5px] mt-1">
               {employeeSign && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={employeeSign}
                   alt="Employee Sign"
-                  className="h-[25px] mx-auto object-contain"
+                  className="h-[13px] mx-auto object-contain"
                 />
               )}
               <div className="mt-1">
@@ -387,13 +379,13 @@ export default function EastCoastRailwayIDFront() {
           </div>
 
           {/* Authority Signature */}
-          <div className="flex flex-col items-center text-right text-[10px]">
+          <div className="flex flex-col items-center text-right text-[5px]">
             {authoritySign && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={authoritySign}
                 alt="Authority Signature"
-                className="h-[25px] object-contain"
+                className="h-[13px] object-contain"
               />
             )}
             <div className="mt-1 leading-tight">
