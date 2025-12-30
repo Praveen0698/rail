@@ -14,6 +14,7 @@ export default function EastCoastRailwayIDFront() {
   const [divisionEnglish, setDivisionEnglish] = useState("East Coast Railway");
   const [subDivision, setSubDivision] = useState("Khurda Road Division");
   const [department, setDepartment] = useState("Commercial");
+  const [idNumber, setIdNumber] = useState("कं.सा. No. KUR/COMM/TC/CC/7983");
 
   const [name, setName] = useState("AVINASH BHAGAT");
   const [designation, setDesignation] = useState("TC/CC");
@@ -117,6 +118,14 @@ export default function EastCoastRailwayIDFront() {
             <input
               value={department}
               onChange={(e) => setDepartment(e.target.value)}
+              className="border rounded w-full px-2 py-1"
+            />
+          </div>
+          <div>
+            <label>Id Number</label>
+            <input
+              value={idNumber}
+              onChange={(e) => setIdNumber(e.target.value)}
               className="border rounded w-full px-2 py-1"
             />
           </div>
@@ -244,8 +253,8 @@ export default function EastCoastRailwayIDFront() {
             <img
               src={logo || "/golden-emblem.png"}
               alt="Uploaded Logo"
-              width={30}
-              height={30}
+              width={25}
+              height={25}
               className="object-contain"
             />
           </div>
@@ -259,7 +268,7 @@ export default function EastCoastRailwayIDFront() {
           {/* Identity Strip */}
           <div className="flex justify-between bg-black text-white px-3 py-0.5 text-[6px]">
             <div>परिचय पत्र Identity Card</div>
-            <div>कं.सा. No. KUR/COMM/TC/CC/7983</div>
+            <div>{idNumber}</div>
           </div>
         </div>
 
@@ -273,19 +282,19 @@ export default function EastCoastRailwayIDFront() {
               alt="Watermark"
               width={100}
               height={100}
-              className="object-contain mt-5"
+              className="object-contain mt-10"
             />
           </div>
 
           {/* Photo Section */}
-          <div className={`${!photo && "border"} w-[45px] h-[55px]`}>
+          <div className={`${!photo && "border"} w-[55px] h-[65px]`}>
             {photo ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={photo}
                 alt="Photo"
-                width={45}
-                height={55}
+                width={50}
+                height={60}
                 className="w-full h-full object-cover"
               />
             ) : (
@@ -293,8 +302,8 @@ export default function EastCoastRailwayIDFront() {
               <img
                 src="/id-photo.jpg"
                 alt="Default"
-                width={45}
-                height={55}
+                width={50}
+                height={60}
                 className="object-cover"
               />
             )}
@@ -303,7 +312,7 @@ export default function EastCoastRailwayIDFront() {
           {/* Details Section */}
           <div className="flex-1 text-[9px] ml-5 font-medium">
             <div className="grid grid-cols-2 gap-y-1">
-              <div className="text-[#c930a4] text-[6px]">
+              <div className="text-[#c930a4] text-[7px]">
                 <div className="flex justify-between">
                   <span className="text-[#c930a4]">नाम</span>
                   <span className="text-[#c930a4]">Name :</span>
@@ -329,7 +338,7 @@ export default function EastCoastRailwayIDFront() {
                   <span className="text-[#c930a4]">Date of Issue :</span>
                 </div>
               </div>
-              <div className="text-[6px] font-bold ml-2">
+              <div className="text-[7px] font-bold ml-2">
                 {name}
                 <br />
                 {designation}
