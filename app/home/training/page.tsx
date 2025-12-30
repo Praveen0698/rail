@@ -221,7 +221,7 @@ export default function EastCoastRailwayIDFront() {
         style={{ width: `325.03937008px`, height: `204.09448819px` }}
       >
         {/* Header Section */}
-        <div className="relative z-10 p-1.5">
+        <div className="relative z-10 p-1">
           <div className="flex justify-between items-center px-2.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -347,16 +347,16 @@ export default function EastCoastRailwayIDFront() {
         </div>
 
         {/* QR + Signatures */}
-        <div className="flex flex-row items-end justify-between w-full px-2.5 mt-1.5">
+        <div className="flex flex-row items-end justify-between w-full px-2.5 mt-1">
           {/* QR + Employee Signature */}
           <div>
             <div className="flex flex-col items-center">
               {qrImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={qrImage} alt="QR" className="w-[30px] h-[30px]" />
+                <img src={qrImage} alt="QR" className="w-[20px] h-[20px]" />
               ) : qrAuto ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={qrAuto} alt="Auto QR" className="w-[30px] h-[30px]" />
+                <img src={qrAuto} alt="Auto QR" className="w-[20px] h-[20px]" />
               ) : (
                 <span className="text-[5px] text-gray-400">QR</span>
               )}
