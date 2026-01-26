@@ -26,10 +26,11 @@ const tileData = [
     href: '/home/training',
   },
   {
-    label: 'Dummy Tile 2',
-    key: 'dummy2',
+    label: 'Notify Letter',
+    key: 'notify',
     accent: 'bg-gray-200',
-    Component: () => <div className="text-center p-4">Dummy Content 2</div>,
+    Component: () => <div className="text-center p-4">Notify Letter Section</div>,
+    href: '/home/notifyLetter/print',
   },
 ];
 
