@@ -32,6 +32,13 @@ const tileData = [
     Component: () => <div className="text-center p-4">Notify Letter Section</div>,
     href: '/home/notifyLetter/print',
   },
+  {
+    label: 'Medical Letter',
+    key: 'medical',
+    accent: 'bg-red-200',
+    Component: () => <div className="text-center p-4">Medical Letter Section</div>,
+    href: '/home/medicalLetter',
+  },
 ];
 
 export default function Page() {

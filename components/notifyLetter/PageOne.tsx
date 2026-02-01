@@ -51,7 +51,7 @@ export default function OfficeMemoPage1({ data }: { data: OfficeMemoData }) {
         }}
       >
         <div className="flex justify-between items-start">
-          <Image src="/golden-emblem.png" alt="" width={60} height={80} />
+          <Image src="/emblemBlack.png" alt="" width={60} height={80} />
           <div className="text-center flex-1 px-4">
             <p className="text-[18px] font-bold">
               रेलवे भर्ती बोर्ड/{data.boardCityHindi}
