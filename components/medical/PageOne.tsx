@@ -220,7 +220,7 @@ export default function OfficeMemoPage1({ data }: { data: OfficeMemoData }) {
               </div>
             </div>
           </div>
-          <div className="mt-1 text-[12px] leading-relaxed">
+          {/* <div className="mt-1 text-[12px] leading-relaxed">
             <p className="font-bold">
               कृपया इसे फाड़कर उम्मीदवार को लौटा दें। / Please tear off and
               return to the candidate
@@ -237,7 +237,7 @@ export default function OfficeMemoPage1({ data }: { data: OfficeMemoData }) {
                 CALL LETTER MEDICAL EXAMINATION
               </p>
             </div>
-          </div>
+          </div> */}
 
           <div className="border border-black p-1 mt-2 text-[11px] leading-relaxed">
             <p>
