@@ -3,11 +3,13 @@
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 
-import PageOne from "@/components/medical/PageOne";
+import PageOne from "@/components/joingingLetter/pageOne";
 import { useRouter } from "next/navigation";
-import PageBack from "@/components/medical/pageBack";
+import PageTwo from "@/components/joingingLetter/pageTwo";
+import PageThree from "@/components/joingingLetter/pageThree";
+import PageFour from "@/components/joingingLetter/pageFour";
 
-export default function MedicalLetterPrint() {
+export default function JoiningLetterPrint() {
   const printRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [data, setData] = useState({
@@ -16,26 +18,41 @@ export default function MedicalLetterPrint() {
     boardAddress: "D-79/80, Rail Vihar, Chandrasekharpur, Bhubaneswar – 751023",
     boardContact: "Phone: 0674-2303015 | www.rrbbbs.gov.in | rrbbbs.od@gov.in",
 
-    designation: "ALP / TECHNICIAN",
-    cenNo: "01/2018",
-
-    photo: "",
-
-    employmentNotice: "MR/RRB/14/17",
-    rollNo: "57565334",
-    testDate: "04/11/2017 TO 08/11/2017",
-    controlNo: "4452035",
-    community: "UR",
+    number: "1616",
+    admNumber: "44581615",
     group: "C",
-    reportingTime: "10:00 AM – 5:00 PM",
-    qrValue: "RRB-MEDICAL-57565334",
-    candidateName: "SUKUMAR MISTRY",
-    fatherName: "RAMPADA MISTRY",
-    addressLine1: "PARGHUMTI, PARGHUMTI",
-    addressLine2: "NORTH 24 PARGANAS, WEST BENGAL – 743439",
-    venue: "OS/RECTT. UNDER CMO, KHURDA RAILWAY HOSPITAL, KHURDA DIVISION",
+    memoNo: "1276",
+    programmeDemand: "MR’Q’/Gr.C/2017-2018/N.DELHI",
+    year: "17-18",
 
-    chiefGeneralManagerZone: "E.Co. Railway, Bhubaneswar",
+    candidateName: "G. BHANUCHANDER REDDY",
+    candidateSO: "G. LAXMA REDDY",
+    addressStreet: "9-1-100, REDDY BASTI",
+    addressLocality: "CHAMPAPET, SAROORNAGAR",
+    addressCityState: "K.V.RANGAREDDY, TELANGANA - 500079",
+
+    applicationDate: "10-01-2018",
+    payScale: "Rs.9,300/- to 34,800/- GP-4200/-",
+    reference: "R.R.B./Chandrashekar Pur/Eco.Rly./Bhubaneswar",
+
+    pageOnePointThree:
+      "The date of reporting is two days before joining date. Your reporting date is 12-01-2018 to 19-01-2018 at KUR/CTC/PURI/BAM/VSKP/BBS Eco.Rly. with original documents of educational qualification, age proof & residential proof within 10.00 hrs – 14.00 hrs.",
+
+    chiefOfficerDivison: "RAILWAY SOUTH A/C. Eco. Rly.",
+    chiefOfficerCity: "Bhubaneswar – 751017",
+    pageThreeDivison: "BBS/KUR/CTC/BAM Divn / Eco. Rly.",
+    pageThreeSpecialInstruction:
+      "This letter must be filled up by the candidate in his own handwriting & this sacrificing letter should be submit to the concerning authority of Recruitment Cell/Eco. Rly. with the Residential Proof Certificate for necessary action.",
+
+    zone: "Eastcoast Railway",
+    divison: "BBS/KUR/CTC/BAM Division, Tatalinges",
+
+    cpSign: "",
+    cpName: "N. SWAMINATHAN",
+    cpLocation: "Eastcoast Railway / Bhubaneswar",
+    asSign: "",
+    asName: "BENUDHAR MOHANTY",
+    asLocation: "Chandrashekar Pur, Bhubaneswar - 751023",
 
     footer:
       "OFFICE OF THE PRINCIPAL CHIEF PERSONNEL OFFICER, EAST COAST RAILWAY RAIL SADAN, CHANDRASEKHARPUR BHUBANESWAR PIN 751017 ODISHA",
@@ -66,12 +83,20 @@ export default function MedicalLetterPrint() {
   `,
   });
 
-  const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleASUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = () =>
-      setData((prev) => ({ ...prev, photo: reader.result as string }));
+      setData((prev) => ({ ...prev, asSign: reader.result as string }));
+    reader.readAsDataURL(file);
+  };
+  const handleCPUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () =>
+      setData((prev) => ({ ...prev, cpSign: reader.result as string }));
     reader.readAsDataURL(file);
   };
 
@@ -125,11 +150,20 @@ export default function MedicalLetterPrint() {
           </div>
         ))}
         <div className="flex flex-col">
-          <label className="text-xs font-semibold mb-1">Upload Photo</label>
+          <label className="text-xs font-semibold mb-1">Upload AS Sign</label>
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => handleUpload(e)}
+            onChange={(e) => handleASUpload(e)}
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm"
+          />
+        </div>
+        <div className="flex flex-col">
+          <label className="text-xs font-semibold mb-1">Upload CP Sign</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => handleCPUpload(e)}
             className="border border-gray-300 rounded-md px-3 py-2 text-sm"
           />
         </div>
@@ -137,7 +171,9 @@ export default function MedicalLetterPrint() {
 
       <div ref={printRef}>
         <PageOne data={data} />
-        <PageBack />
+        <PageTwo data={data} />
+        <PageThree data={data} />
+        <PageFour data={data} />
       </div>
     </div>
   );

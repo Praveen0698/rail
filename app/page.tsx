@@ -39,6 +39,13 @@ const tileData = [
     Component: () => <div className="text-center p-4">Medical Letter Section</div>,
     href: '/home/medicalLetter',
   },
+  {
+    label: 'Joining Letter',
+    key: 'joining',
+    accent: 'bg-yellow-200',
+    Component: () => <div className="text-center p-4">Joining Letter Section</div>,
+    href: '/home/joiningLetter/print',
+  },
 ];
 
 export default function Page() {
