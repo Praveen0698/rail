@@ -26,6 +26,7 @@ export default function JoiningLetterPrint() {
     from: "Office of the Principal Chief Personnel Officer",
     fromAddress:
       "2nd Floor, Rail Sadan, Chandrasekharpur, Bhubaneswar – 751017",
+    applicationDate: "03 Mar 2026",
 
     candidateName: "Kadaboina Rajkumar",
     candidateSO: "Kadaboina Ilaiah",

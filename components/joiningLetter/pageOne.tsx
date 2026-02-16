@@ -21,6 +21,7 @@ interface OfficeMemoData {
   candidateSO: string;
 
   applicationNo: string;
+  applicationDate: string;
   memoNo: string;
 
   group: string;
@@ -124,6 +125,9 @@ export default function OfficeMemoPage1({ data }: { data: OfficeMemoData }) {
               <p>{data.division}</p>
               <p>{data.fromAddress}</p>
             </div>
+            <p className="text-[12px] leading-[1.55]">
+              <b>Date:</b> {data.applicationDate}
+            </p>
           </div>
           <div className="flex justify-between items-start">
             <div className="text-[12px] leading-[1.55] font-semibold">
