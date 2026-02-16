@@ -1,50 +1,68 @@
-'use client';
-import Link from 'next/link';
-
+"use client";
+import Link from "next/link";
 
 // Dummy tile data
 const tileData = [
   {
-    label: 'Pension Card',
-    key: 'pension',
-    accent: 'bg-blue-500',
-    Component: () => <div className="text-center p-4">Pension Card Section</div>,
-    href: '/home/pension',
+    label: "Pension Card",
+    key: "pension",
+    accent: "bg-blue-500",
+    Component: () => (
+      <div className="text-center p-4">Pension Card Section</div>
+    ),
+    href: "/home/pension",
   },
   {
-    label: 'ID Card',
-    key: 'id',
-    accent: 'bg-green-500',
+    label: "ID Card",
+    key: "id",
+    accent: "bg-green-500",
     Component: () => <div className="text-center p-4">ID Card Section</div>,
-    href: '/home/identity',
+    href: "/home/identity",
   },
   {
-    label: 'Dummy Tile 1',
-    key: 'dummy1',
-    accent: 'bg-gray-200',
-    Component: () => <div className="text-center p-4">Training Card Section</div>,
-    href: '/home/training',
+    label: "Dummy Tile 1",
+    key: "dummy1",
+    accent: "bg-gray-200",
+    Component: () => (
+      <div className="text-center p-4">Training Card Section</div>
+    ),
+    href: "/home/training",
   },
   {
-    label: 'Notify Letter',
-    key: 'notify',
-    accent: 'bg-gray-200',
-    Component: () => <div className="text-center p-4">Notify Letter Section</div>,
-    href: '/home/notifyLetter/print',
+    label: "Notify Letter",
+    key: "notify",
+    accent: "bg-gray-200",
+    Component: () => (
+      <div className="text-center p-4">Notify Letter Section</div>
+    ),
+    href: "/home/notifyLetter/print",
   },
   {
-    label: 'Medical Letter',
-    key: 'medical',
-    accent: 'bg-red-200',
-    Component: () => <div className="text-center p-4">Medical Letter Section</div>,
-    href: '/home/medicalLetter',
+    label: "Medical Letter",
+    key: "medical",
+    accent: "bg-red-200",
+    Component: () => (
+      <div className="text-center p-4">Medical Letter Section</div>
+    ),
+    href: "/home/medicalLetter",
   },
   {
-    label: 'Joining Letter',
-    key: 'joining',
-    accent: 'bg-yellow-200',
-    Component: () => <div className="text-center p-4">Joining Letter Section</div>,
-    href: '/home/joiningLetter/print',
+    label: "Joining Letter",
+    key: "joining",
+    accent: "bg-yellow-200",
+    Component: () => (
+      <div className="text-center p-4">Joining Letter Section</div>
+    ),
+    href: "/home/joiningLetter/print",
+  },
+  {
+    label: "Reporting Letter",
+    key: "reporting",
+    accent: "bg-green-200",
+    Component: () => (
+      <div className="text-center p-4">Reporting Letter Section</div>
+    ),
+    href: "/home/reportingLetter/print",
   },
 ];
 
@@ -74,7 +92,7 @@ export default function Page() {
                 {label}
               </span>
             </div>
-          )
+          ),
         )}
       </div>
     </div>
