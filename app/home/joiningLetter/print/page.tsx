@@ -28,6 +28,9 @@ export default function JoiningLetterPrint() {
       "2nd Floor, Rail Sadan, Chandrasekharpur, Bhubaneswar – 751017",
     applicationDate: "03 Mar 2026",
 
+    trainingSubDate: "03 February 2026",
+    trainingDays: "45",
+
     candidateName: "Kadaboina Rajkumar",
     candidateSO: "Kadaboina Ilaiah",
     applicationNo: "198-2025/RRB-07/2025 NTPC (Under Graduate)",

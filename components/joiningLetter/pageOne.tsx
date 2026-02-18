@@ -24,6 +24,8 @@ interface OfficeMemoData {
   applicationDate: string;
   memoNo: string;
 
+  trainingSubDate: string;
+  trainingDays: string;
   group: string;
   designation: string;
   payScale: string;
@@ -143,7 +145,9 @@ export default function OfficeMemoPage1({ data }: { data: OfficeMemoData }) {
             <p>Subject:</p>
             <p>
               Appointment to the Group ‘{data.group}’ service as Probationary{" "}
-              {data.designation} in Pay Band {data.payScale}
+              {data.designation} in Pay Band {data.payScale}. The training shall
+              commence w.e.f. {data.trainingSubDate} and will be conducted for a
+              period of {data.trainingDays} days.
             </p>
           </div>
 

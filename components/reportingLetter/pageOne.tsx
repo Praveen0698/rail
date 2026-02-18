@@ -115,7 +115,7 @@ export default function OfficeMemoPage1({ data }: { data: OfficeMemoData }) {
           <div className="mt-8 text-[12px] leading-[1.6] font-bold flex gap-2.5">
             <p>Sub:</p>
             <p className="underline">
-              Appointment Letter for the post of Group – &quot; {data.group}{" "}
+              Reporting Letter for the post of Group – &quot; {data.group}{" "}
               &quot; in the Payscale of {data.payScale} plus Other Allowance.
               (R.P.)
             </p>
