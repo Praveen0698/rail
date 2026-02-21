@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 export default function ReportingLetterPrint() {
   const router = useRouter();
 
-  const printRef = useRef<HTMLDivElement>(null);
   const envelopeRef = useRef<HTMLDivElement>(null);
 
   const [data, setData] = useState({
