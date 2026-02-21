@@ -20,8 +20,8 @@ const tileData = [
     href: "/home/identity",
   },
   {
-    label: "Dummy Tile 1",
-    key: "dummy1",
+    label: "Training Card",
+    key: "training",
     accent: "bg-gray-200",
     Component: () => (
       <div className="text-center p-4">Training Card Section</div>
@@ -63,6 +63,13 @@ const tileData = [
       <div className="text-center p-4">Reporting Letter Section</div>
     ),
     href: "/home/reportingLetter/print",
+  },
+  {
+    label: "Envelop",
+    key: "envelop",
+    accent: "bg-blue-200",
+    Component: () => <div className="text-center p-4">Envelop Section</div>,
+    href: "/home/envelop/print",
   },
 ];
 
