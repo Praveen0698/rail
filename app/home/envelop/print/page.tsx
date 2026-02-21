@@ -11,7 +11,7 @@ export default function ReportingLetterPrint() {
 
   const [data, setData] = useState({
     candidateName: "G. BHANUCHANDER REDDY",
-    candidateSO: "G. LAXMA REDDY",
+    candidateSO: "S/O G. LAXMA REDDY",
     addressStreet: "9-1-100, REDDY BASTI",
     addressLocality: "CHAMPAPET, SAROORNAGAR",
     addressCityState: "K.V.RANGAREDDY, TELANGANA - 500079",
@@ -30,9 +30,14 @@ export default function ReportingLetterPrint() {
   const handlePrintEnvelope = useReactToPrint({
     contentRef: envelopeRef,
     pageStyle: `
-      @page { size: A4; margin: 0; }
-      body { font-family: "Times New Roman", serif; }
-    `,
+    @page {
+      size: 24cm 11cm; /* Long envelope size */
+      margin: 0;
+    }
+    body {
+      margin: 0;
+    }
+  `,
   });
 
   const handleSignUpload = (
@@ -92,10 +97,10 @@ export default function ReportingLetterPrint() {
         </div>
       </div>
 
-      <div ref={envelopeRef} className="mt-20">
+      <div ref={envelopeRef}>
         <div
           style={{
-            width: "22cm",
+            width: "24cm",
             height: "11cm",
             padding: "1cm",
             boxSizing: "border-box",
@@ -118,7 +123,7 @@ export default function ReportingLetterPrint() {
             <br />
             {data.candidateName}
             <br />
-            S/o {data.candidateSO}
+            {data.candidateSO}
             <br />
             {data.addressStreet}
             <br />
