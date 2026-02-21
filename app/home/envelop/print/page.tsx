@@ -11,7 +11,7 @@ export default function ReportingLetterPrint() {
 
   const [data, setData] = useState({
     candidateName: "G. BHANUCHANDER REDDY",
-    candidateSO: "G. LAXMA REDDY",
+    candidateSO: "S/O G. LAXMA REDDY",
     addressStreet: "9-1-100, REDDY BASTI",
     addressLocality: "CHAMPAPET, SAROORNAGAR",
     addressCityState: "K.V.RANGAREDDY, TELANGANA - 500079",
@@ -118,7 +118,7 @@ export default function ReportingLetterPrint() {
             <br />
             {data.candidateName}
             <br />
-            S/o {data.candidateSO}
+            {data.candidateSO}
             <br />
             {data.addressStreet}
             <br />
@@ -160,3 +160,4 @@ export default function ReportingLetterPrint() {
     </div>
   );
 }
+
