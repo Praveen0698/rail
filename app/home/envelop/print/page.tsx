@@ -137,7 +137,6 @@ export default function ReportingLetterPrint() {
             </div>
           </div>
 
-          {/* BOTTOM SECTION */}
           <div style={{ display: "flex", justifyContent: "flex-start", marginBottom:"2cm" }}>
             <div>
               <p style={{ color: "red", marginBottom: "10px" }}>
