@@ -120,6 +120,7 @@ export default function ReportingLetterPrint() {
                 fontWeight: "bold",
                 lineHeight: "1.6",
                 textAlign: "left",
+                marginLeft:"2cm"
               }}
             >
               To,
@@ -137,7 +138,7 @@ export default function ReportingLetterPrint() {
           </div>
 
           {/* BOTTOM SECTION */}
-          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+          <div style={{ display: "flex", justifyContent: "flex-start", marginBottom:"2cm" }}>
             <div>
               <p style={{ color: "red", marginBottom: "10px" }}>
                 <i>&quot;If undelivered, please return to&quot;</i>
