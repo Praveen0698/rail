@@ -102,6 +102,7 @@ export default function ReportingLetterPrint() {
           style={{
             width: "27.5cm",
             height: "12.5cm",
+            marginLeft: "2cm",
             padding: "1cm",
             boxSizing: "border-box",
             fontFamily: "Times New Roman",
