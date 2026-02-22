@@ -31,7 +31,7 @@ export default function ReportingLetterPrint() {
     contentRef: envelopeRef,
     pageStyle: `
     @page {
-      size: 24cm 11cm; /* Long envelope size */
+      size: 27.5cm 12.5cm;
       margin: 0;
     }
     body {
@@ -100,64 +100,78 @@ export default function ReportingLetterPrint() {
       <div ref={envelopeRef}>
         <div
           style={{
-            width: "24cm",
-            height: "11cm",
+            width: "27.5cm",
+            height: "12.5cm",
             padding: "1cm",
             boxSizing: "border-box",
             fontFamily: "Times New Roman",
-            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
           }}
         >
-          <div
-            style={{
-              position: "absolute",
-              top: "1cm",
-              right: 0,
-              width: "10cm",
-              fontSize: "16px",
-              fontWeight: "bold",
-              lineHeight: "1.6",
-            }}
-          >
-            To,
-            <br />
-            {data.candidateName}
-            <br />
-            {data.candidateSO}
-            <br />
-            {data.addressStreet}
-            <br />
-            {data.addressLocality}
-            <br />
-            {data.addressCityState}
+          {/* TOP SECTION */}
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <div
+              style={{
+                width: "10cm",
+                fontSize: "16px",
+                fontWeight: "bold",
+                lineHeight: "1.6",
+                textAlign: "left",
+              }}
+            >
+              To,
+              <br />
+              {data.candidateName}
+              <br />
+              {data.candidateSO}
+              <br />
+              {data.addressStreet}
+              <br />
+              {data.addressLocality}
+              <br />
+              {data.addressCityState}
+            </div>
           </div>
 
-          <div
-            style={{
-              position: "absolute",
-              bottom: "1cm",
-              left: "1cm",
-            }}
-          >
-            <p className="text-red-500 mb-2.5">
-              <i>&quot;If undelievered, please return to&quot;</i>
-            </p>
-            {data.logo ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={data.logo}
-                alt="Logo"
-                className="h-[120px] w-[100px] object-contain mb-1"
-              />
-            ) : (
-              <div className="h-[120px] w-[100px] border" />
-            )}
-            <div className="mt-2.5" style={{ color: data.companyColor }}>
-              {data.companyName}
-              <br />
-              {data.companyAddress1}
-              <br />
-              {data.companyAddress2}
+          {/* BOTTOM SECTION */}
+          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <div>
+              <p style={{ color: "red", marginBottom: "10px" }}>
+                <i>&quot;If undelivered, please return to&quot;</i>
+              </p>
+
+              {data.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={data.logo}
+                  alt="Logo"
+                  style={{
+                    height: "120px",
+                    width: "100px",
+                    objectFit: "contain",
+                    marginBottom: "8px",
+                  }}
+                />
+              ) : (
+                <div
+                  style={{
+                    height: "120px",
+                    width: "100px",
+                    border: "1px solid black",
+                    marginBottom: "8px",
+                  }}
+                />
+              )}
+
+              <div style={{ color: data.companyColor }}>
+                {data.companyName}
+                <br />
+                {data.companyAddress1}
+                <br />
+                {data.companyAddress2}
+              </div>
             </div>
           </div>
         </div>
@@ -165,4 +179,3 @@ export default function ReportingLetterPrint() {
     </div>
   );
 }
-
