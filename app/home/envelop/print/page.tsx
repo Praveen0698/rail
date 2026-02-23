@@ -31,7 +31,7 @@ export default function ReportingLetterPrint() {
     contentRef: envelopeRef,
     pageStyle: `
     @page {
-      size: 27.5cm 12.5cm;
+      size: 30.5cm 12.5cm;
       margin: 0;
     }
     body {
@@ -100,7 +100,7 @@ export default function ReportingLetterPrint() {
       <div ref={envelopeRef}>
         <div
           style={{
-            width: "27.5cm",
+            width: "30.5cm",
             height: "12.5cm",
             marginLeft: "2cm",
             padding: "1cm",
@@ -137,7 +137,7 @@ export default function ReportingLetterPrint() {
             </div>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "flex-start", marginBottom:"8cm" }}>
+          <div style={{ display: "flex", justifyContent: "flex-start", marginBottom:"5cm" }}>
             <div>
               <p style={{ color: "red", marginBottom: "10px" }}>
                 <i>&quot;If undelivered, please return to&quot;</i>
