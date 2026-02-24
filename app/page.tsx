@@ -1,114 +1,182 @@
 "use client";
-import Link from "next/link";
 
-// Dummy tile data
-const tileData = [
+import Link from "next/link";
+import { useState } from "react";
+
+/* ================= TILE INTERFACE ================= */
+interface Tile {
+  label: string;
+  key: string;
+  accent: string;
+  href: string;
+}
+
+/* ================= SIDEBAR DATA ================= */
+const sidebarOptions = [
   {
-    label: "Pension Card",
-    key: "pension",
-    accent: "bg-blue-500",
-    Component: () => (
-      <div className="text-center p-4">Pension Card Section</div>
-    ),
-    href: "/home/pension",
+    key: "railway",
+    label: "Indian Railway",
   },
   {
-    label: "ID Card",
-    key: "id",
-    accent: "bg-green-500",
-    Component: () => <div className="text-center p-4">ID Card Section</div>,
-    href: "/home/identity",
+    key: "fci",
+    label: "FCI",
   },
   {
-    label: "Training Card",
-    key: "training",
-    accent: "bg-gray-200",
-    Component: () => (
-      <div className="text-center p-4">Training Card Section</div>
-    ),
-    href: "/home/training",
-  },
-  {
-    label: "Notify Letter",
-    key: "notify",
-    accent: "bg-gray-200",
-    Component: () => (
-      <div className="text-center p-4">Notify Letter Section</div>
-    ),
-    href: "/home/notifyLetter/print",
-  },
-  {
-    label: "Medical Letter",
-    key: "medical",
-    accent: "bg-red-200",
-    Component: () => (
-      <div className="text-center p-4">Medical Letter Section</div>
-    ),
-    href: "/home/medicalLetter",
-  },
-  {
-    label: "Joining Letter",
-    key: "joining",
-    accent: "bg-yellow-200",
-    Component: () => (
-      <div className="text-center p-4">Joining Letter Section</div>
-    ),
-    href: "/home/joiningLetter/print",
-  },
-  {
-    label: "Reporting Letter",
-    key: "reporting",
-    accent: "bg-green-200",
-    Component: () => (
-      <div className="text-center p-4">Reporting Letter Section</div>
-    ),
-    href: "/home/reportingLetter/print",
-  },
-  {
-    label: "Envelop",
-    key: "envelop",
-    accent: "bg-blue-200",
-    Component: () => <div className="text-center p-4">Envelop Section</div>,
-    href: "/home/envelop/print",
-  },
-  {
-    label: "Admit Card",
-    key: "admitCard",
-    accent: "bg-violet-200",
-    Component: () => <div className="text-center p-4">Admit Card Section</div>,
-    href: "/home/admitCard/print",
+    key: "defence",
+    label: "Defence",
   },
 ];
 
+/* ================= TILE DATA MAP ================= */
+const tileMap: Record<string, Tile[]> = {
+  railway: [
+    {
+      label: "Pension Card",
+      key: "pension",
+      accent: "from-blue-500 to-blue-600",
+      href: "/home/pension",
+    },
+    {
+      label: "ID Card",
+      key: "id",
+      accent: "from-green-500 to-green-600",
+      href: "/home/identity",
+    },
+    {
+      label: "Training Card",
+      key: "training",
+      accent: "from-gray-500 to-gray-600",
+      href: "/home/training",
+    },
+    {
+      label: "Notify Letter",
+      key: "notify",
+      accent: "from-indigo-500 to-indigo-600",
+      href: "/home/notifyLetter/print",
+    },
+    {
+      label: "Medical Letter",
+      key: "medical",
+      accent: "from-red-500 to-red-600",
+      href: "/home/medicalLetter",
+    },
+    {
+      label: "Joining Letter",
+      key: "joining",
+      accent: "from-yellow-500 to-yellow-600",
+      href: "/home/joiningLetter/print",
+    },
+    {
+      label: "Reporting Letter",
+      key: "reporting",
+      accent: "from-emerald-500 to-emerald-600",
+      href: "/home/reportingLetter/print",
+    },
+    {
+      label: "Envelope",
+      key: "envelop",
+      accent: "from-cyan-500 to-cyan-600",
+      href: "/home/envelop/print",
+    },
+    {
+      label: "Admit Card",
+      key: "admitCard",
+      accent: "from-violet-500 to-violet-600",
+      href: "/home/admitCard/print",
+    },
+  ],
+
+  /* Dummy FCI Cards */
+  fci: [
+    {
+      label: "FCI ID Card",
+      key: "fci-id",
+      accent: "from-orange-500 to-orange-600",
+      href: "#",
+    },
+    {
+      label: "FCI Joining Letter",
+      key: "fci-joining",
+      accent: "from-teal-500 to-teal-600",
+      href: "#",
+    },
+    {
+      label: "FCI Medical Letter",
+      key: "fci-medical",
+      accent: "from-pink-500 to-pink-600",
+      href: "#",
+    },
+  ],
+
+  defence: [
+    {
+      label: "Defence ID",
+      key: "def-id",
+      accent: "from-gray-700 to-black",
+      href: "#",
+    },
+  ],
+};
+
 export default function Page() {
+  const [activeCategory, setActiveCategory] = useState("railway");
+
+  const tiles = tileMap[activeCategory] || [];
+
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {tileData.map(({ label, key, accent, Component, href }) =>
-          href ? (
+    <div className="min-h-screen bg-gray-100 flex">
+
+      {/* ================= SIDEBAR ================= */}
+      <aside className="w-64 bg-white shadow-lg border-r border-gray-200 p-6">
+        <h2 className="text-xl font-bold mb-6">Departments</h2>
+
+        <div className="space-y-3">
+          {sidebarOptions.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => setActiveCategory(item.key)}
+              className={`w-full text-left px-4 py-3 rounded-lg transition font-medium
+                ${
+                  activeCategory === item.key
+                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-md"
+                    : "hover:bg-gray-100 text-gray-700"
+                }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      </aside>
+
+      {/* ================= CONTENT ================= */}
+      <main className="flex-1 p-8">
+
+        <h1 className="text-2xl font-bold mb-8 capitalize">
+          {activeCategory === "railway"
+            ? "Indian Railway"
+            : activeCategory.toUpperCase()}
+        </h1>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {tiles.map(({ label, key, accent, href }) => (
             <Link
               href={href}
               key={key}
-              className={`relative rounded-xl shadow-md ${accent} hover:shadow-lg transition duration-300 flex items-center justify-center min-h-[160px] cursor-pointer`}
+              className={`relative rounded-2xl shadow-md hover:shadow-xl transition duration-300 
+              bg-gradient-to-br ${accent} text-white p-8 min-h-[160px] flex items-center justify-center group`}
             >
-              <Component />
-              <span className="absolute bottom-2 right-2 text-xs bg-white px-2 py-0.5 rounded shadow">
+              <span className="text-lg font-semibold group-hover:scale-105 transition">
                 {label}
+              </span>
+
+              <span className="absolute bottom-4 right-4 text-xs bg-white/20 px-3 py-1 rounded-full backdrop-blur">
+                Open →
               </span>
             </Link>
-          ) : (
-            <div
-              key={key}
-              className={`relative rounded-xl shadow-md ${accent} hover:shadow-lg transition duration-300 flex items-center justify-center min-h-[160px]`}
-            >
-              <Component />
-              <span className="absolute bottom-2 right-2 text-xs bg-white px-2 py-0.5 rounded shadow">
-                {label}
-              </span>
-            </div>
-          ),
-        )}
-      </div>
+          ))}
+        </div>
+
+      </main>
     </div>
   );
 }
