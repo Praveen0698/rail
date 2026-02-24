@@ -71,6 +71,13 @@ const tileData = [
     Component: () => <div className="text-center p-4">Envelop Section</div>,
     href: "/home/envelop/print",
   },
+  {
+    label: "Admit Card",
+    key: "admitCard",
+    accent: "bg-violet-200",
+    Component: () => <div className="text-center p-4">Admit Card Section</div>,
+    href: "/home/admitCard/print",
+  },
 ];
 
 export default function Page() {
