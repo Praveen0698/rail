@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import { useRouter } from "next/navigation";
 
-export default function ReportingLetterPrint() {
+export default function EnvelopPrint() {
   const router = useRouter();
 
   const envelopeRef = useRef<HTMLDivElement>(null);

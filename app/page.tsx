@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 
-/* ================= TILE INTERFACE ================= */
 interface Tile {
   label: string;
   key: string;
@@ -11,7 +10,6 @@ interface Tile {
   href: string;
 }
 
-/* ================= SIDEBAR DATA ================= */
 const sidebarOptions = [
   {
     key: "railway",
@@ -27,7 +25,6 @@ const sidebarOptions = [
   },
 ];
 
-/* ================= TILE DATA MAP ================= */
 const tileMap: Record<string, Tile[]> = {
   railway: [
     {
@@ -84,9 +81,14 @@ const tileMap: Record<string, Tile[]> = {
       accent: "from-violet-500 to-violet-600",
       href: "/home/admitCard/print",
     },
+    {
+      label: "Service Book",
+      key: "serviceBook",
+      accent: "from-purple-500 to-purple-600",
+      href: "/home/serviceBook/print",
+    },
   ],
 
-  /* Dummy FCI Cards */
   fci: [
     {
       label: "FCI ID Card",
@@ -125,8 +127,6 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex">
-
-      {/* ================= SIDEBAR ================= */}
       <aside className="w-64 bg-white shadow-lg border-r border-gray-200 p-6">
         <h2 className="text-xl font-bold mb-6">Departments</h2>
 
@@ -148,9 +148,7 @@ export default function Page() {
         </div>
       </aside>
 
-      {/* ================= CONTENT ================= */}
       <main className="flex-1 p-8">
-
         <h1 className="text-2xl font-bold mb-8 capitalize">
           {activeCategory === "railway"
             ? "Indian Railway"
@@ -175,7 +173,6 @@ export default function Page() {
             </Link>
           ))}
         </div>
-
       </main>
     </div>
   );
