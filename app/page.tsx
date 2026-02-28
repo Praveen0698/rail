@@ -87,6 +87,12 @@ const tileMap: Record<string, Tile[]> = {
       accent: "from-purple-500 to-purple-600",
       href: "/home/serviceBook/print",
     },
+    {
+      label: "Manual",
+      key: "manual",
+      accent: "from-amber-500 to-amber-600",
+      href: "/home/manual/print",
+    },
   ],
 
   fci: [
