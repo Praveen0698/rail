@@ -8,45 +8,43 @@ export default function RailwayIDCard() {
   const navigation = useRouter();
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // 🧱 Card dimensions
-  const [width, setWidth] = useState(340);
-  const [height, setHeight] = useState(215);
+  const [cardNo, setCardNo] = useState("NR/ID/1001");
+  const [yearOfIssue, setYearOfIssue] = useState("2026");
+  const [name, setName] = useState("AMIT KUMAR");
+  const [designation, setDesignation] = useState("JUNIOR CLERK");
+  const [department, setDepartment] = useState("PERSONNEL");
+  const [dob, setDob] = useState("01-01-1985");
 
-  // 📋 Card details
-  const [cardNo, setCardNo] = useState("ASN/009090");
-  const [yearOfIssue, setYearOfIssue] = useState("2021");
-  const [name, setName] = useState("BACHHU PASWAN");
-  const [designation, setDesignation] = useState("TRACK MAINTAINER");
-  const [department, setDepartment] = useState("ENGINEERING");
-  const [dob, setDob] = useState("12-12-1972");
-  const [divisionHindi, setDivisionHindi] = useState(
-    "पूर्व रेलवे, आसनसोल मंडल"
-  );
+  const [divisionHindi, setDivisionHindi] = useState("उत्तरी रेलवे, लखनऊ मंडल");
   const [divisionEnglish, setDivisionEnglish] = useState(
-    "EASTERN RAILWAY, ASANSOL DIVISION"
+    "NORTHERN RAILWAY, LUCKNOW DIVISION",
   );
 
-  // 🖊️ Uploaded images
   const [signature, setSignature] = useState<string | null>(null);
   const [authoritySignature, setAuthoritySignature] = useState<string | null>(
-    null
+    null,
   );
   const [idPhoto, setIdPhoto] = useState<string | null>(null);
 
-  // 🖨 Print card
   const handlePrint = useReactToPrint({
     contentRef: cardRef,
-    documentTitle: "Railway_ID_Card",
+    documentTitle: "PVC_ID_card_front",
     pageStyle: `
-      @page { size: auto; margin: 10mm; }
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      @page {
+        size: 86mm 54mm;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
     `,
   });
 
-  // 🖼 Handle file uploads
   const handleImageUpload = (
     e: React.ChangeEvent<HTMLInputElement>,
-    setter: React.Dispatch<React.SetStateAction<string | null>>
+    setter: React.Dispatch<React.SetStateAction<string | null>>,
   ) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -72,28 +70,6 @@ export default function RailwayIDCard() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-          <div>
-            <label className="block font-semibold">Width (px):</label>
-            <input
-              type="number"
-              min="200"
-              max="600"
-              value={width}
-              onChange={(e) => setWidth(Number(e.target.value))}
-              className="border rounded px-2 py-1 w-full"
-            />
-          </div>
-          <div>
-            <label className="block font-semibold">Height (px):</label>
-            <input
-              type="number"
-              min="150"
-              max="400"
-              value={height}
-              onChange={(e) => setHeight(Number(e.target.value))}
-              className="border rounded px-2 py-1 w-full"
-            />
-          </div>
           <div>
             <label className="block font-semibold">Card No:</label>
             <input
@@ -201,15 +177,15 @@ export default function RailwayIDCard() {
       <div
         ref={cardRef}
         className="relative bg-white rounded-xl border border-gray-400 font-sans overflow-hidden shadow-md"
-        style={{ width: `${width}px`, height: `${height}px` }}
+        style={{ width: `325.03937008px`, height: `204.09448819px` }}
       >
         {/* Background watermark logo */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-10">
+        <div className="absolute pt-15 inset-0 flex items-center justify-center opacity-10">
           <Image
             src="/indian-railway.png"
             alt="Background Watermark"
-            width={180}
-            height={180}
+            width={120}
+            height={120}
             className="object-contain select-none pointer-events-none"
           />
         </div>
@@ -221,31 +197,31 @@ export default function RailwayIDCard() {
             <Image
               src="/golden-emblem.png"
               alt="Emblem"
-              width={40}
-              height={40}
+              width={35}
+              height={35}
               className="object-contain"
             />
             <div className="flex-1 text-center leading-tight">
               <div
-                className="font-semibold text-[10px]"
+                className="font-semibold text-[9px]"
                 style={{ color: "rgb(220,38,38)", letterSpacing: "1px" }}
               >
                 भारत सरकार
               </div>
               <div
-                className="font-extrabold text-[11px] uppercase"
+                className="font-extrabold text-[10px] uppercase"
                 style={{ color: "rgb(220,38,38)", letterSpacing: "2px" }}
               >
                 GOVERNMENT OF INDIA
               </div>
               <div
-                className="text-[10px] font-bold text-black mt-[2px]"
+                className="text-[9px] font-bold text-black mt-[2px]"
                 style={{ letterSpacing: "0.8px" }}
               >
                 {divisionHindi}
               </div>
               <div
-                className="text-[10px] font-bold text-black mt-[1px]"
+                className="text-[9px] font-bold text-black mt-[1px]"
                 style={{ letterSpacing: "1.2px" }}
               >
                 {divisionEnglish}
@@ -254,8 +230,8 @@ export default function RailwayIDCard() {
             <Image
               src="/indian-railway.png"
               alt="Indian Railways Logo"
-              width={70}
-              height={70}
+              width={65}
+              height={65}
               className="object-contain"
             />
           </div>
@@ -267,27 +243,27 @@ export default function RailwayIDCard() {
           />
 
           {/* Main Content */}
-          <div className="flex px-3 pt-[4px]">
+          <div className="flex px-3 pt-[5px]">
             {/* Photo */}
             <div
               className={`flex-shrink-0 border ${
                 !idPhoto ? "border-black" : "border-none"
-              } w-[75px] h-[85px]`}
+              } w-[60px] h-[70px]`}
             >
               {idPhoto ? (
                 <Image
                   src={idPhoto}
                   alt="ID Photo"
-                  width={75}
-                  height={85}
+                  width={60}
+                  height={70}
                   className="object-cover w-full h-full"
                 />
               ) : (
                 <Image
                   src="/id-photo.jpg"
                   alt="Default ID Photo"
-                  width={75}
-                  height={85}
+                  width={60}
+                  height={70}
                   className="object-cover w-full h-full"
                 />
               )}
@@ -348,11 +324,11 @@ export default function RailwayIDCard() {
               ) : (
                 <div className="h-[25px]" />
               )}
-              <div className="font-bold text-[10px] mt-1">
+              <div className="font-bold text-[8px] mt-1">
                 Signature of Issuing Authority
               </div>
-              <div>जारीकर्ता का हस्ताक्षर</div>
-              <div>व. म. का. अ. / Sr. D.P.O / ASN</div>
+              <div className="text-[6px]">जारीकर्ता का हस्ताक्षर</div>
+              <div className="text-[6px]">व. म. का. अ. / Sr. D.P.O / ASN</div>
             </div>
           </div>
         </div>

@@ -9,14 +9,14 @@ export default function ServiceBookPage() {
   const printRef = useRef<HTMLDivElement>(null);
 
   const [data, setData] = useState({
-    departmentName: "EAST COAST RAILWAY",
-    departmentAddress: "Rail Vihar, Chandrasekharpur, Bhubaneswar – 751023",
+    departmentName: "NORTHERN RAILWAY",
+    departmentAddress: "Demo Rail Bhawan, Sample Nagar, New Delhi – 110001",
     departmentLogo: "",
     candidatePhoto: "",
-    candidateNameEnglish: "",
-    candidateNameHindi: "",
-    designationEnglish: "",
-    designationHindi: "",
+    candidateNameEnglish: "RAHUL SHARMA",
+    candidateNameHindi: "राहुल शर्मा",
+    designationEnglish: "Junior Clerk",
+    designationHindi: "कनिष्ठ लिपिक",
   });
 
   const handlePrint = useReactToPrint({

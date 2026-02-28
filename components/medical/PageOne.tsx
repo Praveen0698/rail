@@ -157,7 +157,7 @@ export default function OfficeMemoPage1({ data }: { data: OfficeMemoData }) {
               </p>
 
               <p className="uppercase mt-1">{data.candidateName}</p>
-              <p>S/O – {data.fatherName}</p>
+              <p>{data.fatherName}</p>
               <p>{data.addressLine1}</p>
               <p>{data.addressLine2}</p>
             </div>

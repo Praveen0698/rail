@@ -11,49 +11,48 @@ export default function AdmitCardPage() {
   const printRef = useRef<HTMLDivElement>(null);
 
   const [data, setData] = useState({
-    boardCityHindi: "भुवनेश्वर",
-    boardCity: "BHUBANESWAR",
-    boardAddress: "D-79/80, Rail Vihar, Chandrasekharpur, Bhubaneswar – 751023",
-    boardContact: "Phone: 0674-2303015 | www.rrbbbs.gov.in | rrbbbs.od@gov.in",
+    boardCityHindi: "नई दिल्ली",
+    boardCity: "NEW DELHI",
+    boardAddress: "123, Sample Road, Demo Area, New Delhi – 110001",
+    boardContact: "Phone: 011-12345678 | www.example.com | info@example.com",
 
-    notificationNo: "NN4655445",
-    dateOfIssue: "01/Feb/2021",
-    rollNo: "121194120660787",
-    registrationNo: "1210475642",
-    candidateName: "CHAINA RAM KUMAWAT",
-    address: "123, ABC Street, Bikaner, Rajasthan - 334022",
+    notificationNo: "RRB/2026/001",
+    dateOfIssue: "15/Jan/2026",
+    rollNo: "999999999999",
+    registrationNo: "REG12345678",
+    candidateName: "RAHUL SHARMA",
+    address: "45, Demo Street, Model Town, Jaipur, Rajasthan - 302001",
     logo: "",
     gender: "Male",
-    community: "OBC",
-    group: "Group D",
-    designation: "Track Maintainer",
+    community: "General",
+    group: "Group C",
+    designation: "Junior Assistant",
 
-    examDate: "01/Feb/2021",
-    reportingTime: "09:00 AM",
-    shift: "1",
-    examLanguage: "English",
-    landmark: "Near Garden City",
-    nearestStation: "BIKANER JUNCTION",
+    examDate: "20/Mar/2026",
+    reportingTime: "10:00 AM",
+    shift: "2",
+    examLanguage: "Hindi",
+    landmark: "Near City Mall",
+    nearestStation: "JAIPUR JUNCTION",
 
     instructionE1:
-      "Candidate must carry a valid original Photo ID proof along with this E-Call Letter.",
+      "This is a dummy instruction for testing layout purposes only.",
     instructionE2:
-      "Reach the examination centre at least 60 minutes before reporting time.",
+      "Please arrive at the venue 30 minutes before the reporting time.",
     instructionE3:
-      "Electronic gadgets such as mobile phones, calculators, smart watches are strictly prohibited.",
+      "Do not bring any prohibited electronic items inside the exam hall.",
     instructionE4:
-      "Follow all COVID and examination hall guidelines issued by RRB.",
-    instructionE5: "Any malpractice will lead to cancellation of candidature.",
+      "Follow all instructions mentioned in this sample admit card.",
+    instructionE5:
+      "This call letter is generated for UI testing purposes only.",
 
-    instructionH1:
-      "उम्मीदवार को इस ई-कॉल लेटर के साथ एक वैध मूल फोटो पहचान पत्र लाना अनिवार्य है।",
-    instructionH2:
-      "रिपोर्टिंग समय से कम से कम 60 मिनट पहले परीक्षा केंद्र पर पहुंचे।",
+    instructionH1: "यह केवल लेआउट परीक्षण के लिए एक डमी निर्देश है।",
+    instructionH2: "रिपोर्टिंग समय से 30 मिनट पहले परीक्षा केंद्र पर पहुंचें।",
     instructionH3:
-      "मोबाइल फोन, कैलकुलेटर, स्मार्ट वॉच जैसे इलेक्ट्रॉनिक उपकरण सख्त वर्जित हैं।",
-    instructionH4: "आरआरबी द्वारा जारी सभी परीक्षा निर्देशों का पालन करें।",
-    instructionH5:
-      "किसी भी प्रकार की अनुचित गतिविधि पर उम्मीदवारी रद्द की जा सकती है।",
+      "परीक्षा कक्ष में किसी भी प्रकार के इलेक्ट्रॉनिक उपकरण न लाएं।",
+    instructionH4:
+      "इस नमूना प्रवेश पत्र में दिए गए सभी निर्देशों का पालन करें।",
+    instructionH5: "यह कॉल लेटर केवल यूआई परीक्षण के उद्देश्य से बनाया गया है।",
   });
 
   const handlePrint = useReactToPrint({
@@ -239,7 +238,7 @@ export default function AdmitCardPage() {
                         height: "40px",
                         width: "140px",
                         objectFit: "contain",
-                        margin:"0 auto"
+                        margin: "0 auto",
                       }}
                     />
                   )}

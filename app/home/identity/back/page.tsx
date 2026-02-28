@@ -7,42 +7,46 @@ export default function RailwayIDCardBack() {
   const navigation = useRouter();
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Card size
-  const [width, setWidth] = useState(340);
-  const [height, setHeight] = useState(215);
+  const [pfNo, setPfNo] = useState("PF1002003001");
 
-  // Fields (with sample defaults from the image)
-  const [pfNo, setPfNo] = useState("50200084219");
   const [resAddress, setResAddress] = useState(
-    "RLY COLONY BARAKAR, QTR NO-37/A\nPO-BARAKAR, WB-713324"
+    "RLY COLONY SAMPLE, QTR NO-12/B\nPO-SAMPLE NAGAR, UP-226001",
   );
-  const [telOffice, setTelOffice] = useState("87642 (RLY)");
-  const [telResidence, setTelResidence] = useState("");
-  const [mobileNo, setMobileNo] = useState("8972937947");
-  const [bloodGroup, setBloodGroup] = useState("B+");
-  const [identMark, setIdentMark] = useState("WOUND MARK IN RIGHT LEG FINGER");
 
-  // Instructions (bilingual)
+  const [telOffice, setTelOffice] = useState("12345 (RLY)");
+  const [telResidence, setTelResidence] = useState("N/A");
+  const [mobileNo, setMobileNo] = useState("9000000001");
+
+  const [bloodGroup, setBloodGroup] = useState("O+");
+  const [identMark, setIdentMark] = useState("SMALL SCAR ON LEFT HAND");
+
   const [instr1Hi, setInstr1Hi] = useState(
-    "स्थानान्तरण / सेवानिवृत्ति पर हमें लौटा दें!"
+    "स्थानांतरण / सेवानिवृत्ति पर कृपया यह कार्ड वापस करें।",
   );
   const [instr1En, setInstr1En] = useState(
-    "RETURN IT ON TRANSFER / RETIREMENT."
-  );
-  const [instr2Hi, setInstr2Hi] = useState(
-    "खो जाने पर कार्यालय तथा थाना पर तत्काल रिपोर्ट करें!"
-  );
-  const [instr2En, setInstr2En] = useState(
-    "IN CASE OF LOSS, REPORT TO OFFICE & PS IMMEDIATELY."
+    "PLEASE RETURN THIS CARD ON TRANSFER / RETIREMENT.",
   );
 
-  // Print
+  const [instr2Hi, setInstr2Hi] = useState(
+    "खो जाने की स्थिति में कार्यालय एवं नजदीकी थाने में तुरंत सूचना दें।",
+  );
+  const [instr2En, setInstr2En] = useState(
+    "IN CASE OF LOSS, REPORT TO OFFICE & NEAREST POLICE STATION IMMEDIATELY.",
+  );
+
   const handlePrint = useReactToPrint({
     contentRef: cardRef,
-    documentTitle: "Railway_ID_Card_Back",
+    documentTitle: "PVC_ID_card_back",
     pageStyle: `
-      @page { size: auto; margin: 10mm; }
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      @page {
+        size: 86mm 54mm;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
     `,
   });
 
@@ -55,29 +59,6 @@ export default function RailwayIDCardBack() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-          <div>
-            <label className="block font-semibold">Width (px):</label>
-            <input
-              type="number"
-              min={200}
-              max={600}
-              value={width}
-              onChange={(e) => setWidth(Number(e.target.value))}
-              className="border rounded px-2 py-1 w-full"
-            />
-          </div>
-          <div>
-            <label className="block font-semibold">Height (px):</label>
-            <input
-              type="number"
-              min={150}
-              max={400}
-              value={height}
-              onChange={(e) => setHeight(Number(e.target.value))}
-              className="border rounded px-2 py-1 w-full"
-            />
-          </div>
-
           <div>
             <label className="block font-semibold">
               PF / Employee No. (पीएफ / कर्मचारी संख्या)
@@ -207,9 +188,9 @@ export default function RailwayIDCardBack() {
       <div
         ref={cardRef}
         className="bg-white rounded-xl border border-gray-400 overflow-hidden relative shadow-md px-3 py-2"
-        style={{ width: `${width}px`, height: `${height}px` }}
+        style={{ width: `325.03937008px`, height: `204.09448819px` }}
       >
-        <div className="text-[9px] font-semibold text-black leading-tight">
+        <div className="text-[8px] font-semibold text-black leading-tight">
           {/* Top block: PF / Address */}
           <div className="grid grid-cols-2 gap-x-2">
             <div>
@@ -279,8 +260,8 @@ export default function RailwayIDCardBack() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-x-2">
-            <div className="text-[8px] -mt-[1px] text-gray-700">रक्त समूह</div>
-            <div className="text-[8px] -mt-[1px] text-gray-700">
+            <div className="text-[7px] -mt-[1px] text-gray-700">रक्त समूह</div>
+            <div className="text-[7px] -mt-[1px] text-gray-700">
               पहचान चिन्ह
             </div>
           </div>
@@ -292,7 +273,7 @@ export default function RailwayIDCardBack() {
           />
 
           {/* Instructions */}
-          <div className="text-[9px]">
+          <div className="text-[7px]">
             <div className="font-bold">अनु्देश / Instructions :</div>
             <ol className="list-decimal ml-4 mt-[2px] space-y-[2px]">
               <li>

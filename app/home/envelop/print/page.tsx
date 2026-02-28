@@ -10,17 +10,17 @@ export default function EnvelopPrint() {
   const envelopeRef = useRef<HTMLDivElement>(null);
 
   const [data, setData] = useState({
-    candidateName: "G. BHANUCHANDER REDDY",
-    candidateSO: "S/O G. LAXMA REDDY",
-    addressStreet: "9-1-100, REDDY BASTI",
-    addressLocality: "CHAMPAPET, SAROORNAGAR",
-    addressCityState: "K.V.RANGAREDDY, TELANGANA - 500079",
+    candidateName: "AMIT KUMAR",
+    candidateSO: "S/O RAJESH KUMAR",
+    addressStreet: "12-34-567, SAMPLE NAGAR",
+    addressLocality: "MODEL COLONY, CENTRAL AREA",
+    addressCityState: "LUCKNOW, UTTAR PRADESH - 226001",
 
     logo: "",
-    companyColor: "blue",
-    companyName: "EAST COAST RAILWAY",
-    companyAddress1: "RAIL SADAN, CHANDRASEKHARPUR",
-    companyAddress2: "BHUBANESWAR - 751017",
+    companyColor: "teal",
+    companyName: "SOUTH CENTRAL RAILWAY",
+    companyAddress1: "ADMINISTRATIVE BUILDING, RAILWAY COMPLEX",
+    companyAddress2: "HYDERABAD - 500025",
   });
 
   const handleChange = (key: string, value: string) => {
@@ -120,7 +120,7 @@ export default function EnvelopPrint() {
                 fontWeight: "bold",
                 lineHeight: "1.6",
                 textAlign: "left",
-                marginLeft:"5cm"
+                marginLeft: "5cm",
               }}
             >
               To,
@@ -137,7 +137,13 @@ export default function EnvelopPrint() {
             </div>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "flex-start", marginBottom:"5cm" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              marginBottom: "5cm",
+            }}
+          >
             <div>
               <p style={{ color: "red", marginBottom: "10px" }}>
                 <i>&quot;If undelivered, please return to&quot;</i>

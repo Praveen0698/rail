@@ -10,18 +10,18 @@ export default function EastCoastRailwayIDFront() {
   const cardRef = useRef<HTMLDivElement>(null);
 
   // 🔹 Form fields
-  const [divisionHindi, setDivisionHindi] = useState("पूर्व तट रेलवे");
-  const [divisionEnglish, setDivisionEnglish] = useState("East Coast Railway");
-  const [subDivision, setSubDivision] = useState("Khurda Road Division");
-  const [department, setDepartment] = useState("Commercial");
-  const [idNumber, setIdNumber] = useState("कं.सा. No. KUR/COMM/TC/CC/7983");
+  const [divisionHindi, setDivisionHindi] = useState("उत्तरी रेलवे");
+  const [divisionEnglish, setDivisionEnglish] = useState("Northern Railway");
+  const [subDivision, setSubDivision] = useState("Lucknow Division");
+  const [department, setDepartment] = useState("Personnel Department");
+  const [idNumber, setIdNumber] = useState("आईडी सं. NR/PERS/CLERK/1001");
 
-  const [name, setName] = useState("AVINASH BHAGAT");
-  const [designation, setDesignation] = useState("TC/CC");
-  const [pfNo, setPfNo] = useState("01179794");
-  const [office, setOffice] = useState("Khurda Road");
-  const [dob, setDob] = useState("06.01.1994");
-  const [issueDate, setIssueDate] = useState("23.08.2024");
+  const [name, setName] = useState("AMIT KUMAR");
+  const [designation, setDesignation] = useState("Junior Clerk");
+  const [pfNo, setPfNo] = useState("PF1001001");
+  const [office, setOffice] = useState("Lucknow");
+  const [dob, setDob] = useState("01.01.1995");
+  const [issueDate, setIssueDate] = useState("15.01.2026");
 
   // 🖼 Uploads
   const [photo, setPhoto] = useState<string | null>(null);
@@ -34,7 +34,7 @@ export default function EastCoastRailwayIDFront() {
   // 🖨 Print
   const handlePrint = useReactToPrint({
     contentRef: cardRef,
-    documentTitle: "PVC_ID_CARD",
+    documentTitle: "PVC_Training_card_front",
     pageStyle: `
       @page {
         size: 86mm 54mm;
@@ -51,7 +51,7 @@ export default function EastCoastRailwayIDFront() {
   // 📸 File Upload Helper
   const handleUpload = (
     e: React.ChangeEvent<HTMLInputElement>,
-    setter: React.Dispatch<React.SetStateAction<string | null>>
+    setter: React.Dispatch<React.SetStateAction<string | null>>,
   ) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -186,6 +186,7 @@ export default function EastCoastRailwayIDFront() {
               type="file"
               accept="image/*"
               onChange={(e) => handleUpload(e, setLogo)}
+              className="border w-full p-2 rounded text-sm"
             />
           </div>
           <div>
@@ -194,6 +195,7 @@ export default function EastCoastRailwayIDFront() {
               type="file"
               accept="image/*"
               onChange={(e) => handleUpload(e, setPhoto)}
+              className="border w-full p-2 rounded text-sm"
             />
           </div>
           <div>
@@ -202,6 +204,7 @@ export default function EastCoastRailwayIDFront() {
               type="file"
               accept="image/*"
               onChange={(e) => handleUpload(e, setEmployeeSign)}
+              className="border w-full p-2 rounded text-sm"
             />
           </div>
           <div>
@@ -210,6 +213,7 @@ export default function EastCoastRailwayIDFront() {
               type="file"
               accept="image/*"
               onChange={(e) => handleUpload(e, setAuthoritySign)}
+              className="border w-full p-2 rounded text-sm"
             />
           </div>
           <div>

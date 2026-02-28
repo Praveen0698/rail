@@ -12,64 +12,65 @@ export default function JoiningLetterPrint() {
   const printRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [data, setData] = useState({
-    boardCityHindi: "भुवनेश्वर",
-    boardCity: "BHUBANESWAR",
-    boardAddress: "D-79/80, Rail Vihar, Chandrasekharpur, Bhubaneswar – 751023",
-    boardContact: "Phone: 0674-2303015 | www.rrbbbs.gov.in | rrbbbs.od@gov.in",
+    boardCityHindi: "नई दिल्ली",
+    boardCity: "NEW DELHI",
+    boardAddress: "123, Demo Rail Bhawan, Sample Nagar, New Delhi – 110001",
+    boardContact:
+      "Phone: 011-00000000 | www.demo-railway.gov.in | demo@railway.gov.in",
 
-    division: "EAST COAST RAILWAY",
-    ooNo: "14/III/2025/TCs",
+    division: "NORTHERN RAILWAY",
+    ooNo: "01/I/2026/SAMPLE",
 
-    ref1: "DPO/KUR Memorandum No. U/Z 735/CS/Gr.C/Vol.IV dated 01.12.2025",
-    ref2: "Offer of Appointment Letter No. U/P 587/III/TCs dated 04.12.2025",
+    ref1: "Sample Memorandum No. DEMO/123/2026 dated 01.01.2026",
+    ref2: "Sample Offer of Appointment Letter No. DEMO/456/2026 dated 05.01.2026",
 
-    from: "Office of the Principal Chief Personnel Officer",
+    from: "Office of the Chief Personnel Officer",
     fromAddress:
-      "2nd Floor, Rail Sadan, Chandrasekharpur, Bhubaneswar – 751017",
-    applicationDate: "03 Mar 2026",
+      "1st Floor, Demo Rail Bhawan, Sample Nagar, New Delhi – 110001",
+    applicationDate: "15 Jan 2026",
 
-    trainingSubDate: "03 February 2026",
-    trainingDays: "45",
+    trainingSubDate: "20 January 2026",
+    trainingDays: "30",
 
-    candidateName: "Kadaboina Rajkumar",
-    candidateSO: "Kadaboina Ilaiah",
-    applicationNo: "198-2025/RRB-07/2025 NTPC (Under Graduate)",
-    memoNo: "101/53-14/III/2025/TCs-1E-1-2025 dated 04.12.2025",
+    candidateName: "RAVI VERMA",
+    candidateSO: "S/O MAHESH VERMA",
+    applicationNo: "RRB/DEMO/NTPC/2026/001",
+    memoNo: "DEMO/TC/2026/001 dated 05.01.2026",
 
     group: "C",
-    designation: "Ticket Collector",
-    payScale: "₹21,700 – ₹81,700 (Pay Level–3) with Grade Pay ₹2,000",
-    stipend: "₹21,830 per month with Grade Pay ₹2,000",
+    designation: "Junior Clerk",
+    payScale: "₹25,000 – ₹75,000 (Pay Level–4) with Grade Pay ₹2,400",
+    stipend: "₹25,500 per month with Grade Pay ₹2,400",
 
-    letterNo: "RRBNTPC/Confcl.Recomm./2025/1012",
-    letterDated: "25.09.2025",
-    divionalManagerCity: "Khurda Road",
+    letterNo: "RRB/CONF/DEMO/2026/789",
+    letterDated: "10.01.2026",
+    divionalManagerCity: "Lucknow",
     divisionZoneAddress:
-      "East Coast Railway Complex, Jatni, Khurda, Odisha – 752050",
+      "Demo Railway Division Office, Central Zone, Lucknow – 226001",
 
-    community: "Other Backward Class",
-    dob: "07.04.1993",
-    education: "HSC (Intermediate)",
+    community: "General",
+    dob: "01.01.1995",
+    education: "Graduate (B.A.)",
     medical:
-      "Aye Two and below without glasses vide Sr. DMO/RH/KUR Memo No. 01404/C-141 dated 13.11.2025",
-    bank: "State Bank of India, Textile Park Branch, A/c No. 41640406610",
+      "Fit in all respects as per Demo Medical Board Certificate No. DEMO/2026/001",
+    bank: "State Bank of Demo, Main Branch, A/c No. 000000000000",
 
-    trainingDate: "8th/10th December, 2025",
-    trainingInstitute: "ECoR Training Institute, Khurda Road",
-    trainingZone: "East Coast Railway",
+    trainingDate: "5th February 2026",
+    trainingInstitute: "Demo Railway Training Institute, Lucknow",
+    trainingZone: "Northern Railway",
 
-    personnelName: "Souvik Saha",
-    personnelBranch: "KUR",
-    personnelZone: "ECoR",
-    personnelBranchNo: "101/53-III/TCs-1E/2025",
-    personnelDate: "04.12.2025",
+    personnelName: "ANIL SHARMA",
+    personnelBranch: "LKO",
+    personnelZone: "NR",
+    personnelBranchNo: "DEMO/NR/TC/2026/01",
+    personnelDate: "05.01.2026",
 
     candidateImg: "",
 
     footer:
-      "OFFICE OF THE PRINCIPAL CHIEF PERSONNEL OFFICER, EAST COAST RAILWAY, RAIL SADAN, CHANDRASEKHARPUR, BHUBANESWAR – 751017, ODISHA",
+      "OFFICE OF THE CHIEF PERSONNEL OFFICER, NORTHERN RAILWAY, DEMO RAIL BHAWAN, NEW DELHI – 110001",
     footerHindi:
-      "प्रधान मुख्य कार्मिक अधिकारी का कार्यालय, पूर्वी तट रेलवे, रेल सदन, चंद्रशेखरपुर, भुवनेश्वर – 751017, ओडिशा",
+      "मुख्य कार्मिक अधिकारी का कार्यालय, उत्तरी रेलवे, डेमो रेल भवन, नई दिल्ली – 110001",
   });
 
   const handleChange = (key: string, value: string) => {

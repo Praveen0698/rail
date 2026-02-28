@@ -1,17 +1,26 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
 export default function NPSCardBack() {
   const navigation = useRouter();
   const cardRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(600);
-  const [height, setHeight] = useState(350);
 
   const handlePrint = useReactToPrint({
     contentRef: cardRef,
-    documentTitle: "NPS_ID_Back",
+    documentTitle: "PVC_Pension_card_Back",
+    pageStyle: `
+      @page {
+        size: 86mm 54mm;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    `,
   });
 
   return (
@@ -21,27 +30,6 @@ export default function NPSCardBack() {
         <h2 className="text-lg font-bold text-center text-gray-700">
           NPS Card – Back Side
         </h2>
-
-        <div className="grid grid-cols-2 gap-3 text-sm">
-          <div>
-            <label>Width (px)</label>
-            <input
-              type="number"
-              value={width}
-              onChange={(e) => setWidth(Number(e.target.value))}
-              className="border rounded w-full px-2 py-1"
-            />
-          </div>
-          <div>
-            <label>Height (px)</label>
-            <input
-              type="number"
-              value={height}
-              onChange={(e) => setHeight(Number(e.target.value))}
-              className="border rounded w-full px-2 py-1"
-            />
-          </div>
-        </div>
       </div>
 
       {/* ---- Card Back Side ---- */}
@@ -49,22 +37,22 @@ export default function NPSCardBack() {
         ref={cardRef}
         className="relative rounded-lg shadow-lg overflow-hidden flex items-center justify-center"
         style={{
-          width: `${width}px`,
-          height: `${height}px`,
+          width: `325.03937008px`,
+          height: `204.09448819px`,
           backgroundImage:
             "linear-gradient(to bottom, rgba(225,238,255,0.65), rgba(228,241,255,0.55), rgba(215,234,255,0.80)), url('/download.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="text-center px-6 leading-tight text-[13px] font-medium">
+        <div className="text-center px-6 leading-tight text-[8px] font-medium">
           {/* English Header */}
-          <div className="font-semibold text-[14px] mb-2">
+          <div className="font-semibold text-[9px] mb-1">
             In case this card is lost/found, kindly inform/return to:
           </div>
 
           {/* English Address */}
-          <div className="mb-3">
+          <div className="mb-1">
             Central Recordkeeping Agency,
             <br />
             NSDL e-Governance Infrastructure Limited
@@ -78,17 +66,17 @@ export default function NPSCardBack() {
           </div>
 
           {/* Penalty */}
-          <div className="font-bold text-[14px] mb-3">
+          <div className="font-bold text-[9px] mb-1">
             Penalty for loss of card is ₹ 50/- only
           </div>
 
           {/* Hindi Section */}
-          <div className="font-semibold text-[14px] mt-4 mb-1">
+          <div className="font-semibold text-[9px] mt-2 mb-1">
             इस कार्ड के खो जाने पर / खोया हुआ कार्ड मिलने पर कृपया सूचित करें /
             लौटायें :
           </div>
 
-          <div className="mb-3">
+          <div className="mb-1">
             सी.के.ए. <br />
             एन.एस.डी.एल ई-गवर्नेंस इंफ्रास्ट्रक्चर लिमिटेड <br />
             २रा फ्लोर, टाइम्स टावर, कमला मिल्स कंपाउंड,
@@ -99,7 +87,7 @@ export default function NPSCardBack() {
             info.cra@nsdl.co.in
           </div>
 
-          <div className="font-bold text-[14px]">
+          <div className="font-bold text-[9px]">
             कार्ड गुम होने पर जुर्माना राशि ₹ ५०/- मात्र
           </div>
         </div>

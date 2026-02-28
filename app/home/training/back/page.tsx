@@ -9,27 +9,27 @@ export default function EastCoastRailwayIDBack() {
   const cardRef = useRef<HTMLDivElement>(null);
 
   // 🔹 Data fields
-  const [issueDate, setIssueDate] = useState("02.09.2024");
-  const [bloodGroup, setBloodGroup] = useState("B+");
-  const [fatherName, setFatherName] = useState("SHAILENDRA BHAGAT");
+  const [issueDate, setIssueDate] = useState("15.01.2026");
+  const [bloodGroup, setBloodGroup] = useState("O+");
+  const [fatherName, setFatherName] = useState("RAJESH KUMAR");
   const [address, setAddress] = useState(
-    "AT: MADHOPUR ANANT\nPOST: KHAIRWA DARP\nDIST: SHEOHAR, PIN: 843329"
+    "H.NO: 12-45\nSTREET: SAMPLE COLONY\nCITY: LUCKNOW, PIN: 226001",
   );
-  const [dob, setDob] = useState("06.01.1994");
-  const [doj, setDoj] = useState("12.04.2024");
-  const [dor, setDor] = useState("14.08.2054");
-  const [phoneO, setPhoneO] = useState("NA");
-  const [phoneR, setPhoneR] = useState("NA");
-  const [phoneM, setPhoneM] = useState("7766995004");
+  const [dob, setDob] = useState("01.01.1995");
+  const [doj, setDoj] = useState("10.03.2026");
+  const [dor, setDor] = useState("31.12.2056");
+  const [phoneO, setPhoneO] = useState("N/A");
+  const [phoneR, setPhoneR] = useState("N/A");
+  const [phoneM, setPhoneM] = useState("9000000000");
 
   // ✅ Dynamic footer address
   const [returnAddress, setReturnAddress] = useState(
-    "Sr.DPO/KUR, Office of DRM, East Coast Railway\nKhurda Road, Jatni - 752050 (Odisha)"
+    "Sr. DPO/DEMO, Office of DRM, Northern Railway\nLucknow Division - 226001 (Uttar Pradesh)",
   );
 
   const handlePrint = useReactToPrint({
     contentRef: cardRef,
-    documentTitle: "PVC_ID_CARD",
+    documentTitle: "PVC_Training_card_Back",
     pageStyle: `
       @page {
         size: 86mm 54mm;

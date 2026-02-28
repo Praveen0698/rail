@@ -11,36 +11,37 @@ export default function MedicalLetterPrint() {
   const printRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [data, setData] = useState({
-    boardCityHindi: "भुवनेश्वर",
-    boardCity: "BHUBANESWAR",
-    boardAddress: "D-79/80, Rail Vihar, Chandrasekharpur, Bhubaneswar – 751023",
-    boardContact: "Phone: 0674-2303015 | www.rrbbbs.gov.in | rrbbbs.od@gov.in",
+    boardCityHindi: "नई दिल्ली",
+    boardCity: "NEW DELHI",
+    boardAddress: "123, Demo Rail Bhawan, Sample Nagar, New Delhi – 110001",
+    boardContact:
+      "Phone: 011-00000000 | www.demo-rrb.gov.in | info@demo-rrb.gov.in",
 
-    designation: "ALP / TECHNICIAN",
-    cenNo: "01/2018",
+    designation: "ASSISTANT LOCO PILOT",
+    cenNo: "02/2026",
 
     photo: "",
 
-    employmentNotice: "MR/RRB/14/17",
-    rollNo: "57565334",
-    testDate: "04/11/2017 TO 08/11/2017",
-    controlNo: "4452035",
-    community: "UR",
+    employmentNotice: "DEMO/RRB/2026/01",
+    rollNo: "99998888",
+    testDate: "10/03/2026 TO 15/03/2026",
+    controlNo: "1234567",
+    community: "GENERAL",
     group: "C",
-    reportingTime: "10:00 AM – 5:00 PM",
-    qrValue: "RRB-MEDICAL-57565334",
-    candidateName: "SUKUMAR MISTRY",
-    fatherName: "RAMPADA MISTRY",
-    addressLine1: "PARGHUMTI, PARGHUMTI",
-    addressLine2: "NORTH 24 PARGANAS, WEST BENGAL – 743439",
-    venue: "OS/RECTT. UNDER CMO, KHURDA RAILWAY HOSPITAL, KHURDA DIVISION",
+    reportingTime: "09:00 AM – 4:00 PM",
+    qrValue: "DEMO-RRB-99998888",
+    candidateName: "ARUN KUMAR",
+    fatherName: "S/O RAMESH KUMAR",
+    addressLine1: "12-45, SAMPLE COLONY",
+    addressLine2: "MODEL TOWN, LUCKNOW – 226001",
+    venue: "DEMO RAILWAY HOSPITAL, CENTRAL DIVISION",
 
-    chiefGeneralManagerZone: "E.Co. Railway, Bhubaneswar",
+    chiefGeneralManagerZone: "Northern Railway, New Delhi",
 
     footer:
-      "OFFICE OF THE PRINCIPAL CHIEF PERSONNEL OFFICER, EAST COAST RAILWAY RAIL SADAN, CHANDRASEKHARPUR BHUBANESWAR PIN 751017 ODISHA",
+      "OFFICE OF THE CHIEF PERSONNEL OFFICER, NORTHERN RAILWAY, DEMO RAIL BHAWAN, NEW DELHI – 110001",
     footerHindi:
-      "प्रधान मुख्यकार्मिक अर्धकारी का कार्ािलर्, पूर्वी तट रे लर्वेरे ल सदन, चंद्रशेखरपुर भुर्वनेश्वर र्पन 751017 ओर्िशा",
+      "मुख्य कार्मिक अधिकारी का कार्यालय, उत्तरी रेलवे, डेमो रेल भवन, नई दिल्ली – 110001",
   });
 
   const handleChange = (key: string, value: string) => {

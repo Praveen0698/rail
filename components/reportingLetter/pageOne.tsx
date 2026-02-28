@@ -101,7 +101,7 @@ export default function OfficeMemoPage1({ data }: { data: OfficeMemoData }) {
             <div className="text-[12px] leading-[1.55] font-bold">
               <p>To,</p>
               <p>{data.candidateName}</p>
-              <p>S/o. {data.candidateSO}</p>
+              <p>{data.candidateSO}</p>
               <p>{data.addressStreet},</p>
               <p>{data.addressLocality},</p>
               <p>{data.addressCityState}</p>

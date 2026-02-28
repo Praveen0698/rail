@@ -13,51 +13,52 @@ export default function ReportingLetterPrint() {
   const printRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [data, setData] = useState({
-    boardCityHindi: "भुवनेश्वर",
-    boardCity: "BHUBANESWAR",
-    boardAddress: "D-79/80, Rail Vihar, Chandrasekharpur, Bhubaneswar – 751023",
-    boardContact: "Phone: 0674-2303015 | www.rrbbbs.gov.in | rrbbbs.od@gov.in",
+    boardCityHindi: "नई दिल्ली",
+    boardCity: "NEW DELHI",
+    boardAddress: "123, Demo Rail Bhawan, Sample Nagar, New Delhi – 110001",
+    boardContact:
+      "Phone: 011-00000000 | www.demo-railway.gov.in | info@demo.gov.in",
 
-    number: "1616",
-    admNumber: "44581615",
+    number: "1001",
+    admNumber: "99990001",
     group: "C",
-    memoNo: "1276",
-    programmeDemand: "MR’Q’/Gr.C/2017-2018/N.DELHI",
-    year: "17-18",
+    memoNo: "2026/01",
+    programmeDemand: "DEMO/Gr.C/2026-2027/NEW DELHI",
+    year: "26-27",
 
-    candidateName: "G. BHANUCHANDER REDDY",
-    candidateSO: "G. LAXMA REDDY",
-    addressStreet: "9-1-100, REDDY BASTI",
-    addressLocality: "CHAMPAPET, SAROORNAGAR",
-    addressCityState: "K.V.RANGAREDDY, TELANGANA - 500079",
+    candidateName: "AMIT KUMAR",
+    candidateSO: "S/O RAJESH KUMAR",
+    addressStreet: "12-45-678, SAMPLE COLONY",
+    addressLocality: "MODEL TOWN, CENTRAL AREA",
+    addressCityState: "LUCKNOW, UTTAR PRADESH - 226001",
 
-    applicationDate: "10-01-2018",
-    payScale: "Rs.9,300/- to 34,800/- GP-4200/-",
-    reference: "R.R.B./Chandrashekar Pur/Eco.Rly./Bhubaneswar",
+    applicationDate: "15-01-2026",
+    payScale: "Rs.25,000/- to 75,000/- Level-4",
+    reference: "Demo Recruitment Board / Northern Railway / New Delhi",
 
     pageOnePointThree:
-      "The date of reporting is two days before joining date. Your reporting date is 12-01-2018 to 19-01-2018 at KUR/CTC/PURI/BAM/VSKP/BBS Eco.Rly. with original documents of educational qualification, age proof & residential proof within 10.00 hrs – 14.00 hrs.",
+      "The reporting date is two days before the joining date. You are required to report between 09:00 hrs – 13:00 hrs at the Demo Division Office with original documents of educational qualification, age proof, and address proof for verification.",
 
-    chiefOfficerDivison: "RAILWAY SOUTH A/C. Eco. Rly.",
-    chiefOfficerCity: "Bhubaneswar – 751017",
-    pageThreeDivison: "BBS/KUR/CTC/BAM Divn / Eco. Rly.",
+    chiefOfficerDivison: "DEMO RAILWAY SOUTH ZONE",
+    chiefOfficerCity: "New Delhi – 110001",
+    pageThreeDivison: "DEMO/LKO/KAN Division / Northern Railway",
     pageThreeSpecialInstruction:
-      "This letter must be filled up by the candidate in his own handwriting & this sacrificing letter should be submit to the concerning authority of Recruitment Cell/Eco. Rly. with the Residential Proof Certificate for necessary action.",
+      "This letter must be filled by the candidate in their own handwriting and submitted to the Recruitment Cell along with valid residential proof certificate for further necessary action.",
 
-    zone: "Eastcoast Railway",
-    divison: "BBS/KUR/CTC/BAM Division, Tatalinges",
+    zone: "Northern Railway",
+    divison: "Demo Division, Central Zone",
 
     cpSign: "",
-    cpName: "N. SWAMINATHAN",
-    cpLocation: "Eastcoast Railway / Bhubaneswar",
+    cpName: "R. SHARMA",
+    cpLocation: "Northern Railway / New Delhi",
     asSign: "",
-    asName: "BENUDHAR MOHANTY",
-    asLocation: "Chandrashekar Pur, Bhubaneswar - 751023",
+    asName: "P. VERMA",
+    asLocation: "Sample Nagar, New Delhi - 110001",
 
     footer:
-      "OFFICE OF THE PRINCIPAL CHIEF PERSONNEL OFFICER, EAST COAST RAILWAY RAIL SADAN, CHANDRASEKHARPUR BHUBANESWAR PIN 751017 ODISHA",
+      "OFFICE OF THE CHIEF PERSONNEL OFFICER, NORTHERN RAILWAY, DEMO RAIL BHAWAN, NEW DELHI – 110001",
     footerHindi:
-      "प्रधान मुख्यकार्मिक अर्धकारी का कार्ािलर्, पूर्वी तट रे लर्वेरे ल सदन, चंद्रशेखरपुर भुर्वनेश्वर र्पन 751017 ओर्िशा",
+      "मुख्य कार्मिक अधिकारी का कार्यालय, उत्तरी रेलवे, डेमो रेल भवन, नई दिल्ली – 110001",
   });
 
   const handleChange = (key: string, value: string) => {

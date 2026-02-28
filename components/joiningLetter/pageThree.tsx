@@ -59,16 +59,25 @@ export default function OfficeMemoPage3({ data }: { data: OfficeMemoData }) {
 
           <div className="flex justify-between items-start">
             <div />
-            {data.candidateImg ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={data.candidateImg}
-                alt="Signature"
-                className="h-[120px] w-[100px] mx-auto object-contain mb-1"
-              />
-            ) : (
-              <div className="h-[120px] w-[100px] border" />
-            )}
+            <div className="relative flex flex-col items-center">
+              {data.candidateImg ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={data.candidateImg}
+                  alt="Candidate Signature"
+                  className="h-[120px] w-[100px] object-contain border"
+                />
+              ) : (
+                <div className="h-[120px] w-[100px] border" />
+              )}
+
+              <p className="text-[11px] mt-1 text-center leading-tight">
+                Signature of the Candidate <br />
+                <span className="italic text-gray-600">
+                  (Signature should start inside the box and extend outside)
+                </span>
+              </p>
+            </div>
             <div className="flex flex-col items-end mt-20 text-[14px] font-semibold">
               <p>{data.personnelName}</p>
               <p>Asst. Personnel Officer (T)/{data.personnelBranch}</p>
