@@ -9,9 +9,9 @@ export default function ServiceBookPage() {
   const router = useRouter();
   const printRef = useRef<HTMLDivElement>(null);
 
-  const [data] = useState({
+  const [data, setData] = useState({
     year: "2026",
-    yearHindi: "2026",
+    yearHindi: "२०२६",
     volume: "Volume I",
   });
 
@@ -27,6 +27,10 @@ export default function ServiceBookPage() {
       }
     `,
   });
+
+  const handleChange = (key: string, value: string) => {
+    setData((prev) => ({ ...prev, [key]: value }));
+  };
 
   return (
     <div className="flex flex-col items-center py-10 bg-gray-100 print:bg-white print:py-0">
@@ -45,6 +49,22 @@ export default function ServiceBookPage() {
         >
           Print Cover
         </button>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10 w-full max-w-7xl">
+        {Object.entries(data).map(([key, value]) => (
+          <div key={key} className="flex flex-col">
+            <label className="text-xs font-semibold mb-1">
+              {key.replace(/([A-Z])/g, " $1").toUpperCase()}
+            </label>
+            <input
+              type="text"
+              value={value}
+              onChange={(e) => handleChange(key, e.target.value)}
+              className="border border-gray-300 rounded-md px-3 py-2 text-sm"
+            />
+          </div>
+        ))}
       </div>
 
       {/* PRINT AREA */}
