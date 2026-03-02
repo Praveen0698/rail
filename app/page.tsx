@@ -93,6 +93,12 @@ const tileMap: Record<string, Tile[]> = {
       accent: "from-amber-500 to-amber-600",
       href: "/home/manual/print",
     },
+    {
+      label: "Aadhar Card",
+      key: "aadhar",
+      accent: "from-amber-500 to-amber-600",
+      href: "/home/aadhar",
+    },
   ],
 
   fci: [
