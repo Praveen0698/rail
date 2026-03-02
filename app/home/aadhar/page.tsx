@@ -220,19 +220,21 @@ export default function RailwayIDCard() {
       <div className="flex gap-3">
         <button
           onClick={() => handlePrint?.()}
-          className="bg-green-600 text-white px-4 py-2 rounded shadow hover:bg-green-700"
+          className="bg-green-600 cursor-pointer text-white px-4 py-2 rounded shadow hover:bg-green-700"
         >
           Print Card
         </button>
         <button
-          onClick={() =>
-            navigation.push(
-              `/home/aadhar/back?aadharNumber=${aadharNumber}&addressE=${addressEnglish}&addressH=${encodeURIComponent(
-                addressHindi,
-              )}`,
-            )
-          }
-          className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700"
+          className="bg-blue-600 cursor-pointer text-white px-4 py-2 rounded shadow hover:bg-blue-700"
+          onClick={() => {
+            const params = new URLSearchParams({
+              aadharNumber,
+              addressE: addressEnglish,
+              addressH: addressHindi,
+            });
+
+            navigation.push(`/home/aadhar/back?${params.toString()}`);
+          }}
         >
           Back Side
         </button>
