@@ -1,191 +1,99 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { v4 as uuidv4 } from "uuid";
+import Image from "next/image";
 
-interface Tile {
-  label: string;
-  key: string;
-  accent: string;
-  href: string;
-}
+export default function LoginPage() {
+  const router = useRouter();
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-const sidebarOptions = [
-  {
-    key: "railway",
-    label: "Indian Railway",
-  },
-  {
-    key: "fci",
-    label: "FCI",
-  },
-  {
-    key: "defence",
-    label: "Defence",
-  },
-];
+  const handleLogin = () => {
+    const STATIC_USER = "AdminRaj";
+    const STATIC_PASS = "Tejas@2021";
 
-const tileMap: Record<string, Tile[]> = {
-  railway: [
-    {
-      label: "Pension Card",
-      key: "pension",
-      accent: "from-blue-500 to-blue-600",
-      href: "/home/pension",
-    },
-    {
-      label: "ID Card",
-      key: "id",
-      accent: "from-green-500 to-green-600",
-      href: "/home/identity",
-    },
-    {
-      label: "Training Card",
-      key: "training",
-      accent: "from-gray-500 to-gray-600",
-      href: "/home/training",
-    },
-    {
-      label: "Notify Letter",
-      key: "notify",
-      accent: "from-indigo-500 to-indigo-600",
-      href: "/home/notifyLetter/print",
-    },
-    {
-      label: "Medical Letter",
-      key: "medical",
-      accent: "from-red-500 to-red-600",
-      href: "/home/medicalLetter",
-    },
-    {
-      label: "Joining Letter",
-      key: "joining",
-      accent: "from-yellow-500 to-yellow-600",
-      href: "/home/joiningLetter/print",
-    },
-    {
-      label: "Reporting Letter",
-      key: "reporting",
-      accent: "from-emerald-500 to-emerald-600",
-      href: "/home/reportingLetter/print",
-    },
-    {
-      label: "Envelope",
-      key: "envelop",
-      accent: "from-cyan-500 to-cyan-600",
-      href: "/home/envelop/print",
-    },
-    {
-      label: "Admit Card",
-      key: "admitCard",
-      accent: "from-violet-500 to-violet-600",
-      href: "/home/admitCard/print",
-    },
-    {
-      label: "Service Book",
-      key: "serviceBook",
-      accent: "from-purple-500 to-purple-600",
-      href: "/home/serviceBook/print",
-    },
-    {
-      label: "Manual",
-      key: "manual",
-      accent: "from-amber-500 to-amber-600",
-      href: "/home/manual/print",
-    },
-    {
-      label: "Aadhar Card",
-      key: "aadhar",
-      accent: "from-amber-500 to-amber-600",
-      href: "/home/aadhar",
-    },
-  ],
+    if (userId === STATIC_USER && password === STATIC_PASS) {
+      const sessionKey = uuidv4();
 
-  fci: [
-    {
-      label: "FCI ID Card",
-      key: "fci-id",
-      accent: "from-orange-500 to-orange-600",
-      href: "#",
-    },
-    {
-      label: "FCI Joining Letter",
-      key: "fci-joining",
-      accent: "from-teal-500 to-teal-600",
-      href: "#",
-    },
-    {
-      label: "FCI Medical Letter",
-      key: "fci-medical",
-      accent: "from-pink-500 to-pink-600",
-      href: "#",
-    },
-  ],
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({
+          userId,
+          sessionKey,
+          loginTime: Date.now(),
+        }),
+      );
 
-  defence: [
-    {
-      label: "Defence ID",
-      key: "def-id",
-      accent: "from-gray-700 to-black",
-      href: "#",
-    },
-  ],
-};
-
-export default function Page() {
-  const [activeCategory, setActiveCategory] = useState("railway");
-
-  const tiles = tileMap[activeCategory] || [];
+      router.replace("/dashboard");
+    } else {
+      setError("Invalid Credentials");
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex">
-      <aside className="w-64 bg-white shadow-lg border-r border-gray-200 p-6">
-        <h2 className="text-xl font-bold mb-6">Departments</h2>
+    <div className="min-h-screen flex bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]">
+      <div className="w-1/2 hidden md:flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-transparent"></div>
+        <div className="relative flex-col z-10 flex items-center justify-center p-12">
+          <h1 className="text-4xl font-bold text-white/80 mb-5"><i>Jai Jagannath</i></h1>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/20">
+            <Image
+              src="/backgroundd.jpg"
+              alt="Jai Jagannath"
+              width={730}
+              height={490}
+              priority
+              className="object-contain"
+            />
+          </div>
+        </div>
+      </div>
 
-        <div className="space-y-3">
-          {sidebarOptions.map((item) => (
+      <div className="flex w-full md:w-1/2 items-center justify-center p-8">
+        <div className="w-full max-w-md backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl rounded-2xl p-10 text-white">
+          <h1 className="text-2xl font-bold text-center mb-6 tracking-wide">
+            Welcome to Raj Private House
+          </h1>
+
+          {error && <p className="text-red-400 text-center mb-4">{error}</p>}
+
+          <div className="space-y-5">
+            <input
+              type="text"
+              placeholder="User ID"
+              value={userId}
+              onChange={(e) => setUserId(e.target.value)}
+              className="w-full bg-white/20 border border-white/30 placeholder-white/70 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            />
+
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full bg-white/20 border border-white/30 placeholder-white/70 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            />
+
             <button
-              key={item.key}
-              onClick={() => setActiveCategory(item.key)}
-              className={`w-full text-left px-4 py-3 rounded-lg transition font-medium
-                ${
-                  activeCategory === item.key
-                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-md"
-                    : "hover:bg-gray-100 text-gray-700"
-                }`}
+              onClick={handleLogin}
+              className="w-full py-3 rounded-lg font-semibold text-white 
+              bg-gradient-to-r from-blue-500 to-indigo-600 
+              hover:from-blue-600 hover:to-indigo-700 
+              shadow-lg hover:shadow-xl 
+              transform hover:-translate-y-1 transition duration-300"
             >
-              {item.label}
+              Login
             </button>
-          ))}
+          </div>
+
+          <p className="text-center text-sm mt-6 opacity-80">
+            Authorized Access Only
+          </p>
         </div>
-      </aside>
-
-      <main className="flex-1 p-8">
-        <h1 className="text-2xl font-bold mb-8 capitalize">
-          {activeCategory === "railway"
-            ? "Indian Railway"
-            : activeCategory.toUpperCase()}
-        </h1>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tiles.map(({ label, key, accent, href }) => (
-            <Link
-              href={href}
-              key={key}
-              className={`relative rounded-2xl shadow-md hover:shadow-xl transition duration-300 
-              bg-gradient-to-br ${accent} text-white p-8 min-h-[160px] flex items-center justify-center group`}
-            >
-              <span className="text-lg font-semibold group-hover:scale-105 transition">
-                {label}
-              </span>
-
-              <span className="absolute bottom-4 right-4 text-xs bg-white/20 px-3 py-1 rounded-full backdrop-blur">
-                Open →
-              </span>
-            </Link>
-          ))}
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
