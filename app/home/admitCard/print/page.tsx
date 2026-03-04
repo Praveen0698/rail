@@ -148,7 +148,7 @@ export default function AdmitCardPage() {
             <div className="flex items-center px-6 py-2">
               <div className="w-[90px]">
                 <Image
-                  src="/emblemBlack.png"
+                  src="/golden-emblem.png"
                   alt="Emblem"
                   width={60}
                   height={80}

@@ -34,26 +34,19 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]">
-      <div className="w-1/2 hidden md:flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-transparent"></div>
-        <div className="relative flex-col z-10 flex items-center justify-center p-12">
-          <h1 className="text-4xl font-bold text-white/80 mb-5"><i>Jai Jagannath</i></h1>
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/20">
-            <Image
-              src="/backgroundd.jpg"
-              alt="Jai Jagannath"
-              width={730}
-              height={490}
-              priority
-              className="object-contain"
-            />
-          </div>
-        </div>
-      </div>
+    <div className="relative min-h-screen flex items-center justify-center">
+      <Image
+        src="/background.jpg"
+        alt="Background"
+        fill
+        priority
+        className="object-cover"
+      />
 
-      <div className="flex w-full md:w-1/2 items-center justify-center p-8">
-        <div className="w-full max-w-md backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl rounded-2xl p-10 text-white">
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-xs"></div>
+
+      <div className="relative z-10 w-full max-w-md p-8">
+        <div className="backdrop-blur-xs bg-white/10 border border-white/20 shadow-2xl rounded-2xl p-10 text-white">
           <h1 className="text-2xl font-bold text-center mb-6 tracking-wide">
             Welcome to Raj Private House
           </h1>

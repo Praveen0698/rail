@@ -42,7 +42,7 @@ export default function OfficeMemoPage2({ data }: { data: OfficeMemoData }) {
         <div className="flex items-center px-10 py-2.5">
           <div className="w-[80px] flex justify-start">
             <Image
-              src="/emblemBlack.png"
+              src="/golden-emblem.png"
               alt="Government of India Emblem"
               width={60}
               height={80}
