@@ -66,6 +66,12 @@ const tileMap: Record<string, Tile[]> = {
       href: "/home/joiningLetter/print",
     },
     {
+      label: "Cancellation Letter",
+      key: "cancellation",
+      accent: "from-teal-500 to-teal-600",
+      href: "/home/cancellation/print",
+    },
+    {
       label: "Reporting Letter",
       key: "reporting",
       accent: "from-emerald-500 to-emerald-600",
