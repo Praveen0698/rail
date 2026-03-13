@@ -172,7 +172,7 @@ export default function CancellationPage1({ data }: { data: any }) {
           </p>
         </div>
 
-        <div className="absolute bottom-[10mm] left-[20mm] right-[20mm] text-center text-[12px]">
+        <div className="absolute bottom-[10mm] left-[20mm] right-[20mm] text-blue-900 text-center text-[12px]">
           <p>{data.footer}</p>
           <p>{data.footerHindi}</p>
         </div>

@@ -173,7 +173,7 @@ export default function CancellationPage2({
           </div>
         </div>
 
-        <div className="absolute bottom-[8mm] left-[18mm] right-[18mm] text-center text-blue-900 font-medium text-[12px]">
+        <div className="absolute bottom-[8mm] left-[18mm] text-blue-900 right-[18mm] text-center text-blue-900 font-medium text-[12px]">
           <p>{data.footer}</p>
           <p>{data.footerHindi}</p>
         </div>
