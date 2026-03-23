@@ -193,12 +193,17 @@ export default function Page() {
               ? "Indian Railway"
               : activeCategory.toUpperCase()}
           </h1>
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 cursor-pointer text-white px-4 py-2 rounded-lg"
-          >
-            Logout
-          </button>
+          <div className="flex flex-row items-center gap-2.5">
+            <button onClick={() => router.push("/home/send-email")} className="bg-teal-500 cursor-pointer text-white px-4 py-2 rounded-lg">
+              Email
+            </button>
+            <button
+              onClick={handleLogout}
+              className="bg-red-500 cursor-pointer text-white px-4 py-2 rounded-lg"
+            >
+              Logout
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
