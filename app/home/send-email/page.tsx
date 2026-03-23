@@ -632,7 +632,7 @@ function ActionBtn({
 export default function ComposeEmail() {
   const router = useRouter();
   const [form, setForm] = useState({
-    fromName: "Food Corporation of India (FCI) • mpr.fci@nic.in",
+    fromName: "Food Corporation of India (FCI)",
     fromEmail: EMAIL_OPTIONS[0].email,
     replyTo: REPLY_TO_OPTIONS[0].email,
     to: [] as string[],
