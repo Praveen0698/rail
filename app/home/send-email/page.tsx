@@ -24,15 +24,18 @@ const palette = {
   shadowLg: "0 4px 12px rgba(26,24,22,0.08), 0 24px 48px rgba(26,24,22,0.12)",
 };
 
-// ─── Configurable email options ───────────────────────────────────────────────
 const EMAIL_OPTIONS = [
   { email: "mpr.fci@niic.in", label: "mpr.fci@niic.in" },
   { email: "webmaster.fci@goiv.in", label: "webmaster.fci@goiv.in" },
+  { email: "icds.westbengal@goiv.in", label: "icds.westbengal@goiv.in" },
+  { email: "eforms@niic.in", label: "eforms@niic.in" },
 ];
 
 const REPLY_TO_OPTIONS = [
   { email: "mpr.fci@nic.in", label: "mpr.fci@nic.in" },
   { email: "webmaster.fci@gov.in", label: "webmaster.fci@gov.in" },
+  { email: "icdswestbengal@gmail.com", label: "icdswestbengal@gmail.com" },
+  { email: "eforms@nic.in", label: "eforms@nic.in" },
 ];
 
 const icons = {
