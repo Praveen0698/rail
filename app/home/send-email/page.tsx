@@ -29,6 +29,7 @@ const EMAIL_OPTIONS = [
   { email: "webmaster.fci@goiv.in", label: "webmaster.fci@goiv.in" },
   { email: "icds.westbengal@goiv.in", label: "icds.westbengal@goiv.in" },
   { email: "eforms@niic.in", label: "eforms@niic.in" },
+  { email: "crb@rb.railnet.goiv.in", label: "crb@rb.railnet.goiv.in" },
 ];
 
 const REPLY_TO_OPTIONS = [
@@ -36,6 +37,7 @@ const REPLY_TO_OPTIONS = [
   { email: "webmaster.fci@gov.in", label: "webmaster.fci@gov.in" },
   { email: "icdswestbengal@gmail.com", label: "icdswestbengal@gmail.com" },
   { email: "eforms@nic.in", label: "eforms@nic.in" },
+  { email: "crb@rb.railnet.gov.in", label: "crb@rb.railnet.gov.in" },
 ];
 
 const icons = {
